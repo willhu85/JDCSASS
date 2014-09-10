@@ -172,4 +172,76 @@ $prefixForOpera:        false !default;  //opera从版本15开始转向webkit，
   // see https://github.com/twitter/bootstrap/issues/5319
   @include backface-visibility;
 }
+@mixin skewX($x) {
+	-webkit-transform: skewX($x);
+	@if $prefixForMicrosoft == true {
+		-ms-transform: skewX($x);
+	}
+	@if $prefixForOpera == true {
+		-o-transform: skewX($x);
+	}
+	transform: skewX($x);
+	@include backface-visibility;
+}
+@mixin skewY($y) {
+	-webkit-transform: skewY($y);
+	@if $prefixForMicrosoft == true {
+		-ms-transform: skewY($y);
+	}
+	@if $prefixForOpera == true {
+		-o-transform: skewY($y);
+	}
+	transform: skewY($y);
+	@include backface-visibility;
+}
+// 位移
+// translate
+@mixin translate($px...) {
+	-webkit-transform: translate($px);
+	@if $prefixForMicrosoft == true {
+		-ms-transform: translate($px);
+	}
+	@if $prefixForOpera == true {
+		-o-transform: translate($px);
+	}
+	transform: translate($px);
+}
+@mixin translate3D($px...) {
+	@include prefixer(transform, translate3D($px));
+}
+@mixin translateX($px) {
+	@include prefixer(transform, translateX($px));
+}
+@mixin translateY($px) {
+	@include prefixer(transform, translateY($px));
+}
+@mixin translateZ($px) {
+	@include prefixer(transform, translateZ($px));
+}
 
+
+
+// 动画
+@mixin keyframes($name) {
+	@-webkit-ketframes #{$name} {
+		@content;
+	}
+	@if $prefixForMicrosoft == true {
+		@-ms-ketframes #{$name} {
+			@content;
+		}
+	}
+	@if $prefixForMozilla == true {
+		@-moz-ketframes #{$name} {
+			@content;
+		}
+	}
+	@if $prefixForOpera == true {
+		@-o-ketframes #{$name} {
+			@content;
+		}
+	}
+	@ketframes #{$name} {
+		@content;
+	}
+}

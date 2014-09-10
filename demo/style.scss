@@ -1,1 +1,27 @@
-@import url(reset.scss);
+@charset "UTF-8";
+
+@import "../core/config";
+@import "../core/css3";
+@import "../core/mixin";
+@import "../core/reset";
+
+$defaultFontFamily: $fontSongTi;
+
+body {
+    line-height: $defaultLineHeight;
+    background-color: $silver;
+    font-family: $defaultFontFamily;
+    color: $black;
+}
+
+.wrapper {
+
+}
+@include keyframes("testFrames") {
+	from {@include scaleX(1)}
+	to {@include scaleX(2)}
+};
+.wrapper-in {
+	padding-left: 1%;
+	padding-right: 1%;
+}

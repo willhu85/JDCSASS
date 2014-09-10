@@ -168,11 +168,11 @@
 }
 
 // 黑色半透明
-@mixin alpha-bg($bgcolor: rgba(0,0,0,.5) {
+@mixin alpha-bg($bgcolor: rgba(0,0,0,.5)) {
   color: #FFF;
   @if $isFilter {
     // ie-hex-str 可转化为IE滤镜需要的格式
-    filter: progid: DXImageTransform.Microsoft.gradient(enabled='true', startColorstr='#{ie-hex-str($bgcolor)}', endColorstr='#{ie-hex-str($bgcolor)}');
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr='#{ie-hex-str($bgcolor)}', endColorstr='#{ie-hex-str($bgcolor)}');
   } @else {
     background-color: #333;
   }
@@ -222,7 +222,7 @@
 // % 需要通过@extend调用
 
 // ie6-7出发 haslayout
-%zoom {
+@mixin zoom {
   @if $isIe67 {
     *zoom: 1;
   }
