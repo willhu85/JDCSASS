@@ -1,0 +1,249 @@
+@charset "UTF-8";
+/* =============================================================================
+   mixin SCSS
+   mixin 通过@include调用，可以传参
+   ========================================================================== */
+
+// 多属性组合
+// =============================================================================
+
+// display: hidden
+// 完全隐藏
+@mixin dn {
+  display: none !important;
+  visibility: hidden;
+}
+
+// 绝对定位隐藏
+// 位移法和切片法
+@mixin abs-out {
+  position: absolute;
+  left: -999em;
+  top: -999em;
+}
+@mixin abs-clip {
+  position: absolute;
+  @if $isIe67 {
+    clip: rect(1px 1px 1px 1px);
+  }
+  clip: rect(1px, 1px, 1px ,1px);
+}
+
+
+// display: inline-block;
+@mixin dib {
+  display: inline-block;
+  @if $isIe67 {
+    *display: inline;
+    *zoom: 1;
+  }
+}
+
+// 居中
+@mixin auto {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+// float left||right
+@mixin float($float: left) {
+  float: $float;
+  // ie6-7双边距bug
+  @if $isIe67 {
+    display: inline;
+  }
+}
+
+// 清除浮动
+@mixin fix {
+  @if $isIe67 {
+    *zoom: 1;
+  }
+  &:after {
+    display: table;
+    content: '';
+    clear: both;
+  }
+}
+
+// 自适应布局
+@mixin cell {
+  display: table-cell;
+  @if $isIe67 {
+    *display: inline-block;
+  }
+  width: 2000px;
+  @if $isIe67 {
+    *width: auto;
+  }
+}
+
+// 自适应布局cell部分解决连续英文字符换行
+@mixin cell-bk {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+
+// 大小不定元素垂直居中
+@mixin dib-vm {
+  display: inline-block;
+  width: 0;
+  height: 100%;
+  vertical-align: middle;
+}
+
+// 无框文本框文本域
+@mixin bd-none {
+  border: 0;
+  outline: none;
+}
+
+// list-style
+@mixin ul-style($style: disc) {
+  margin-left: 25px;
+  list-style: disc;
+}
+
+// 图片替换
+/* 高级浏览器用2
+   ie7-8不支持transparent,用1
+   ie6用1会有一条细线，所以用3
+   要兼容ie6，需要确定高度
+*/
+@mixin ir($height: 99) {
+  font: 0/0 a;            //1
+  text-shadow: none;
+  border: 0 none;
+  color: transparent;     //2
+  @if $isIe67 {
+    _overflow: hidden;    //3
+    _font-size: 10px;     //3
+    _line-height: $height;//3
+  }
+}
+
+// 文字溢出...
+@mixin ell {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 透明
+@mixin opacity($opacity:0.5) {
+  opacity: $opacity;
+  @if $isFilter {
+    filter: alpha(opacity = $opacity * 100);
+  }
+}
+
+// 三角
+@mixin triangle($direction, $width, $color) {
+  content: "";
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  @if $direction == top {
+    border-bottom: $width solid $color;
+    border-left: $width dashed transparent;
+    border-right: $width dashed transparent;
+  }
+  @else if $direction == bottom {
+    border-top: $width solid $color;
+    border-left: $width dashed transparent;
+    border-right: $width dashed transparent;
+  }
+  @else if $direction == left {
+    border-right: $width solid $color;
+    border-top: $width dashed transparent;
+    border-bottom: $width dashed transparent;
+  }
+  @else if $direction == right {
+    border-left: $width solid $color;
+    border-top: $width dashed transparent;
+    border-bottom: $width dashed transparent;
+  }
+}
+
+// 黑色半透明
+@mixin alpha-bg($bgcolor: rgba(0,0,0,.5) {
+  color: #FFF;
+  @if $isFilter {
+    // ie-hex-str 可转化为IE滤镜需要的格式
+    filter: progid: DXImageTransform.Microsoft.gradient(enabled='true', startColorstr='#{ie-hex-str($bgcolor)}', endColorstr='#{ie-hex-str($bgcolor)}');
+  } @else {
+    background-color: #333;
+  }
+  background-color: $bgcolor;
+}
+
+// 禁用样式,灰底灰字，鼠标手势为禁用
+@mixin disabled ($bgcolor: #E6E6E6, $textcolor: #ABABAB) {
+  background-color: $bgcolor !important;
+  color: $textcolor !important;
+  cursor: not-allowed !important;
+}
+
+// 最小高度,IE6采用height
+@mixin min-height($height) {
+  min-height: $height;
+  height: auto !important;
+  @if $isIe67 {
+    _height: $height;
+  }
+}
+
+// Retina屏幕的图片处理
+// imagex("../img/bg.png", 200px, 100px);
+// Use with care - http://37signals.com/svn/posts/3271-easy-retina-ready-images-using-scss
+@mixin image2x($url, $width, $height) {
+  @media (min--moz-device-pixel-ratio: 1.3),
+         (-o-min-device-pixel-ratio: 2.6/2),
+         (-webkit-min-device-pixel-ratio: 1.3),
+         (min-device-pixel-ratio: 1.3),
+         (min-resolution: 1.3dppx) {
+    background-image: url("#{$url}");
+    background-size: $width $height;
+  }
+}
+
+// 针对火狐的BUG
+// @include ff{.fixbug{margin-left: 3px;}}
+@mixin ff {
+  @-moz-document url-prefix() {
+    @content;
+  };
+}
+
+
+
+// % 需要通过@extend调用
+
+// ie6-7出发 haslayout
+%zoom {
+  @if $isIe67 {
+    *zoom: 1;
+  }
+}
+
+
+// function
+
+// px转em
+// 默认除以16
+@function pxToEm($px, $base:16) {
+  @return ($px / $base) * 1em;
+}
+
+
+
+
+
+
+
+
+
+
+
