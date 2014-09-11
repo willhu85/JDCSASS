@@ -13,7 +13,6 @@
   display: none !important;
   visibility: hidden;
 }
-
 // 绝对定位隐藏
 // 位移法和切片法
 @mixin abs-out {
@@ -28,8 +27,6 @@
   }
   clip: rect(1px, 1px, 1px ,1px);
 }
-
-
 // display: inline-block;
 @mixin dib {
   display: inline-block;
@@ -38,13 +35,11 @@
     *zoom: 1;
   }
 }
-
 // 居中
 @mixin auto {
   margin-right: auto;
   margin-left: auto;
 }
-
 // float left||right
 @mixin float($float: left) {
   float: $float;
@@ -53,7 +48,6 @@
     display: inline;
   }
 }
-
 // 清除浮动
 @mixin fix {
   @if $isIe67 {
@@ -65,7 +59,6 @@
     clear: both;
   }
 }
-
 // 自适应布局
 @mixin cell {
   display: table-cell;
@@ -77,7 +70,6 @@
     *width: auto;
   }
 }
-
 // 自适应布局cell部分解决连续英文字符换行
 @mixin cell-bk {
   display: table;
@@ -85,7 +77,6 @@
   table-layout: fixed;
   word-wrap: break-word;
 }
-
 // 大小不定元素垂直居中
 @mixin dib-vm {
   display: inline-block;
@@ -93,13 +84,11 @@
   height: 100%;
   vertical-align: middle;
 }
-
 // 无框文本框文本域
 @mixin bd-none {
   border: 0;
   outline: none;
 }
-
 // list-style
 @mixin ul-style($style: disc) {
   margin-left: 25px;
@@ -123,14 +112,12 @@
     _line-height: $height;//3
   }
 }
-
 // 文字溢出...
 @mixin ell {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
 // 透明
 @mixin opacity($opacity:0.5) {
   opacity: $opacity;
@@ -138,7 +125,6 @@
     filter: alpha(opacity = $opacity * 100);
   }
 }
-
 // 三角
 @mixin triangle($direction, $width, $color) {
   content: "";
@@ -166,7 +152,6 @@
     border-bottom: $width dashed transparent;
   }
 }
-
 // 黑色半透明
 @mixin alpha-bg($bgcolor: rgba(0,0,0,.5)) {
   color: #FFF;
@@ -178,14 +163,12 @@
   }
   background-color: $bgcolor;
 }
-
 // 禁用样式,灰底灰字，鼠标手势为禁用
 @mixin disabled ($bgcolor: #E6E6E6, $textcolor: #ABABAB) {
   background-color: $bgcolor !important;
   color: $textcolor !important;
   cursor: not-allowed !important;
 }
-
 // 最小高度,IE6采用height
 @mixin min-height($height) {
   min-height: $height;
@@ -194,7 +177,6 @@
     _height: $height;
   }
 }
-
 // Retina屏幕的图片处理
 // imagex("../img/bg.png", 200px, 100px);
 // Use with care - http://37signals.com/svn/posts/3271-easy-retina-ready-images-using-scss
@@ -208,7 +190,6 @@
     background-size: $width $height;
   }
 }
-
 // 针对火狐的BUG
 // @include ff{.fixbug{margin-left: 3px;}}
 @mixin ff {
@@ -216,33 +197,12 @@
     @content;
   };
 }
-
-
-
-// % 需要通过@extend调用
-
 // ie6-7出发 haslayout
 @mixin zoom {
   @if $isIe67 {
     *zoom: 1;
   }
 }
-
-
-// function
-
-// px转em
-// 默认除以16
-@function pxToEm($px, $base:16) {
-  @return ($px / $base) * 1em;
-}
-
-
-
-
-
-
-
 
 
 

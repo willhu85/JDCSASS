@@ -18,10 +18,15 @@ body {
 
 }
 @include keyframes("testFrames") {
-	from {@include scaleX(1)}
-	to {@include scaleX(2)}
+	from {@include scale(2,1)}
+	to {@include scale(20,10)}
 };
 .wrapper-in {
 	padding-left: 1%;
 	padding-right: 1%;
+
+}
+.ss{
+	@include gradient-radial(#00F,#FFF);
+	@include ff{margin-left: 3px;}
 }
