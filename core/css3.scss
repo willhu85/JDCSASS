@@ -13,75 +13,95 @@ $prefixForOpera:        false !default;  //opera从版本15开始转向webkit，
 
 // prefixer
 // ==================================================================
+// 用于在属性上加前缀
+@mixin prefixer($property, $value) {
+	// 默认输出-webkit
+	-webkit-#{$property}: $value;
+	@if $prefixForMozilla == true {
+		-moz-#{$property}: $value;
+	}
+	@if $prefixForMicrosoft == true {
+		-ms-#{$property}: $value;
+	}
+	@if $prefixForOpera == true {
+		-o-#{$property}: $value;
+	}
+	// 默认输出不加前缀的
+	#{$property}: $value;
+}
+
+// 用于在属性值上加前缀(很少用)
+@mixin prefixer-value($property, $value) {
+	// 默认输出-webkit
+	#{$property}: -webkit-#{$value};
+	@if $prefixForMozilla == true {
+		#{$property}: -moz-#{$value};
+	}
+	@if $prefixForMicrosoft == true {
+		#{$property}: -ms-#{$value};
+	}
+	@if $prefixForOpera == true {
+		#{$property}: -o-#{$value};
+	}
+	// 默认输出不加前缀的
+	#{$property}: $value;
+}
+
+
 // Animation
+// ==================================================================
 // eg: animation(test 5s infinite)
 @mixin animation($animation) {
-  -webkit-animation: $animation;
-  @if $prefixForOpera == true {
-       -o-animation: $animation;
-  }
-          animation: $animation;
+	@include prefixer(animation,$animation);
 }
 // 要绑定到选择器的 keyframe 名称
 @mixin animation-name($name) {
-  -webkit-animation-name: $name;
-          animation-name: $name;
+	@include prefixer(animation-name,$name);
 }
 // 完成动画所花费的时间
 @mixin animation-duration($duration) {
-  -webkit-animation-duration: $duration;
-          animation-duration: $duration;
+	@include prefixer(animation-duration,$duration);
 }
 // 动画的速度曲线
 @mixin animation-timing-function($timing-function) {
-  -webkit-animation-timing-function: $timing-function;
-          animation-timing-function: $timing-function;
+	@include prefixer(animation-timing-function,$timing-function);
 }
 // 动画开始前的延迟
 @mixin animation-delay($delay) {
-  -webkit-animation-delay: $delay;
-          animation-delay: $delay;
+	@include prefixer(animation-delay,$delay);
 }
 // 动画播放的次数
 @mixin animation-iteration-count($iteration-count) {
-  -webkit-animation-iteration-count: $iteration-count;
-          animation-iteration-count: $iteration-count;
+	@include prefixer(animation-iteration-count,$iteration-count);
 }
 // 是否反向播放动画
 @mixin animation-direction($direction) {
-  -webkit-animation-direction: $direction;
-          animation-direction: $direction;
+	@include prefixer(animation-direction,$direction);
 }
 // 结束时动画停留的位置
 @mixin animation-fill-mode($fill-mode) {
-  -webkit-animation-fill-mode: $fill-mode;
-          animation-fill-mode: $fill-mode;
+	@include prefixer(animation-fill-mode,$fill-mode);
 }
 
 // backface-visibility
 // 用于3D效果时是否显示背面
 @mixin backface-visibility($visiblity: hidden) {
-  -webkit-backface-visibility: $visiblity;
-  @if $prefixForMozilla == true {
-     -moz-backface-visibility: $visiblity;
-  }
-          backface-visibility: $visiblity;
+	@include prefixer(backface-visibility,$visiblity);
 }
 
+
+// ==================================================================
 // box-shadow
 // 这个妖孽的...是用于填写多参数的东东
 @mixin box-shadow($shadow...) {
-  -webkit-box-shadow: $shadow; // 针对 iOS < 4.3 && Android < 4.1
-          box-shadow: $shadow;
+	@include prefixer(box-shadow,$shadow);
+//  -webkit-box-shadow: $shadow; // 针对 iOS < 4.3 && Android < 4.1
+//          box-shadow: $shadow;
 }
 
 // box-sizing
 @mixin box-sizing($box-model) {
-  -webkit-box-sizing: $box-model;
-  @if $prefixForMozilla == true {
-     -moz-box-sizing: $box-model;
-  }
-          box-sizing: $box-model;
+	@include prefixer(box-sizing,$box-model);
 }
 
 // placehoder text 样式
@@ -98,113 +118,45 @@ $prefixForOpera:        false !default;  //opera从版本15开始转向webkit，
   }
 }
 
+
 // transformations
+// ==================================================================
 // scale 缩放
 @mixin scale($ratio...) {
-  -webkit-transform: scale($ratio);
-  // only IE9
-  @if $prefixForMicrosoft == true {
-      -ms-transform: scale($ratio);
-  }
-  @if $prefixForOpera == true {
-       -o-transform: scale($ratio);
-  }
-          transform: scale($ratio);
+	@include prefixer(transform, scale($ratio));
 }
 @mixin scale3D($ratio...) {
-  -webkit-transform: scale3D($ratio);
-  // only IE9
-  @if $prefixForMicrosoft == true {
-    -ms-transform: scale3D($ratio);
-  }
-  @if $prefixForOpera == true {
-    -o-transform: scale3D($ratio);
-  }
-  transform: scale3D($ratio);
+	@include prefixer(transform, scale3D($ratio));
 }
 @mixin scaleX($ratio) {
-  -webkit-transform: scaleX($ratio);
-  // only IE9
-  @if $prefixForMicrosoft == true {
-    -ms-transform: scaleX($ratio);
-  }
-  @if $prefixForOpera == true {
-     -o-transform: scaleX($ratio);
-  }
-        transform: scaleX($ratio);
+	@include prefixer(transform, scaleX($ratio));
 }
 @mixin scaleY($ratio) {
-  -webkit-transform: scaleY($ratio);
-  // only IE9
-  @if $prefixForMicrosoft == true {
-     -ms-transform: scaleY($ratio);
-  }
-  @if $prefixForOpera == true {
-      -o-transform: scaleY($ratio);
-  }
-         transform: scaleY($ratio);
+	@include prefixer(transform, scaleY($ratio));
 }
 @mixin scaleZ($ratio) {
-  -webkit-transform: scaleZ($ratio);
-  // only IE9
-  @if $prefixForMicrosoft == true {
-    -ms-transform: scaleZ($ratio);
-  }
-  @if $prefixForOpera == true {
-    -o-transform: scaleZ($ratio);
-  }
-  transform: scaleZ($ratio);
+	@include prefixer(transform, scaleZ($ratio));
 }
-
 // skew 斜切
 // 关于为什么 用 skewX,skewY。是因为IE不支持skew(x,y)写法
 // see https://github.com/twbs/bootstrap/issues/4885; IE9+
-@mixin skew($x, $y) {
-  -webkit-transform: skewX($x) skewY($y);
-  @if $prefixForMicrosoft == true {
-       -ms-transform: skewX($x) skew($y);
-  }
-  @if $prefixForOpera == true {
-        -o-transform: skewX($x) skew($y);
-  }
-           transform: skewX($x) skew($y);
-  //skew会有一些锯齿,解决办法是backface-visibility:hidden;
-  // see https://github.com/twitter/bootstrap/issues/5319
-  @include backface-visibility;
+@mixin skew($degrees...) {
+	@include prefixer(transform, skew($degrees));
+ 	//skew会有一些锯齿,解决办法是backface-visibility:hidden;
+  	// see https://github.com/twitter/bootstrap/issues/5319
+  	@include backface-visibility;
 }
-@mixin skewX($x) {
-	-webkit-transform: skewX($x);
-	@if $prefixForMicrosoft == true {
-		-ms-transform: skewX($x);
-	}
-	@if $prefixForOpera == true {
-		-o-transform: skewX($x);
-	}
-	transform: skewX($x);
+@mixin skewX($degrees) {
+	@include prefixer(transform, skewX($degrees));
 	@include backface-visibility;
 }
-@mixin skewY($y) {
-	-webkit-transform: skewY($y);
-	@if $prefixForMicrosoft == true {
-		-ms-transform: skewY($y);
-	}
-	@if $prefixForOpera == true {
-		-o-transform: skewY($y);
-	}
-	transform: skewY($y);
+@mixin skewY($degrees) {
+	@include prefixer(transform, skewY($degrees));
 	@include backface-visibility;
 }
-// 位移
-// translate
+// translate 位移
 @mixin translate($px...) {
-	-webkit-transform: translate($px);
-	@if $prefixForMicrosoft == true {
-		-ms-transform: translate($px);
-	}
-	@if $prefixForOpera == true {
-		-o-transform: translate($px);
-	}
-	transform: translate($px);
+	@include prefixer(transform, translate($px));
 }
 @mixin translate3D($px...) {
 	@include prefixer(transform, translate3D($px));
@@ -218,30 +170,148 @@ $prefixForOpera:        false !default;  //opera从版本15开始转向webkit，
 @mixin translateZ($px) {
 	@include prefixer(transform, translateZ($px));
 }
-
-
+// rotate 旋转
+@mixin rotate($degrees...) {
+	@include prefixer(transform, rotate($degrees));
+}
+@mixin rotate3D($degrees...) {
+	@include prefixer(transform, rotate3D($degrees));
+}
+@mixin rotateX($degrees) {
+	@include prefixer(transform, rotateX($degrees));
+}
+@mixin rotateY($degrees) {
+	@include prefixer(transform, rotateY($degrees));
+}
+@mixin rotateZ($degrees) {
+	@include prefixer(transform, rotateZ($degrees) );
+}
 
 // 动画
+// ==================================================================
 @mixin keyframes($name) {
-	@-webkit-ketframes #{$name} {
+	@-webkit-keyframes #{$name} {
 		@content;
 	}
 	@if $prefixForMicrosoft == true {
-		@-ms-ketframes #{$name} {
+		@-ms-keyframes #{$name} {
 			@content;
 		}
 	}
 	@if $prefixForMozilla == true {
-		@-moz-ketframes #{$name} {
+		@-moz-keyframes #{$name} {
 			@content;
 		}
 	}
 	@if $prefixForOpera == true {
-		@-o-ketframes #{$name} {
+		@-o-keyframes #{$name} {
 			@content;
 		}
 	}
-	@ketframes #{$name} {
+	@keyframes #{$name} {
 		@content;
 	}
+}
+
+
+// font-face
+// ==================================================================
+// http://www.css3files.com/font/
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal) {
+	@font-face {
+		font-family: $font-family;
+		font-weight: $weight;
+		font-style: $style;
+		src: url('#{$file-path}.eot');								     // eot字体，支持IE9之前版本,如果不需要可以删掉
+		src: url('#{$file-path}.eot?#iefix') format('embedded-opentype'),// 也是支持IE9之前的,需要要支持IE6-9,则需要吧上面的也加上
+			 url('#{$file-path}.svg##{$font-family}') format('svg'),     // 用于支持iPad iOS 4.2之前的版本
+			 url('#{$file-path}.woff') format('woff'),				 	 // woff字体，支持所有现代浏览器
+			 url('#{$file-path}.ttf') format('truetype');			 	 // ttf字体，支持移动端的safari&opera
+	}
+}
+
+// background-image
+// ==================================================================
+// border-box | padding-box | content-box
+@mixin background-clip($clip) {
+	@include prefixer(background-clip, $clip);
+}
+@mixin background-origin($origin) {
+	@include prefixer(background-origin, $origin);
+}
+@mixin background-size($size...) {
+	// <length> | auto | cover | contain
+	@if length($size...) >= 1 {
+		@include prefixer(background-size, $size);
+	} @else {
+		@include prefixer(background-size, cover);
+	}
+}
+
+
+// Gradients 渐变
+// ==================================================================
+// 左->右 水平渐变
+// eg: @include gradient-horizontal(#000, #FFF)
+//     @include gradient-horizontal(#000 80%, #FFF 90%, #000);
+@mixin gradient-horizontal($gradient...) {
+	background-image: -webkit-linear-gradient(left, $gradient); // Safari 5.1+, Chrome 10+
+	@if $prefixForOpera == true {
+		background-image: -o-linear-gradient(left, $gradient); // Opera 11.10
+	}
+	background-image: linear-gradient(to right, $gradient); // Standard, IE10
+}
+// 左->右 水平渐变 平铺
+// eg: @include gradient-horizontal-repeating(#333 5%, #ccc 10%);
+@mixin gradient-horizontal-repeating($gradient...){
+	background-image: -webkit-repeating-linear-gradient(left, $gradient); // Safari 5.1+, Chrome 10+
+	@if $prefixForOpera == true {
+		background-image: -o-repeating-linear-gradient(left, $gradient); // Opera 11.10
+	}
+	background-image: repeating-linear-gradient(to right, $gradient); // Standard, IE10
+}
+// 上->下 垂直渐变
+@mixin gradient-vertical($gradient...) {
+	background-image: -webkit-linear-gradient(top, $gradient); // Safari 5.1+, Chrome 10+
+	@if $prefixForOpera == true {
+		background-image: -o-linear-gradient(top, $gradient); // Opera 11.10
+	}
+	background-image: linear-gradient(to bottom, $gradient); // Standard, IE10
+}
+// 上->下 垂直渐变 平铺
+@mixin gradient-vertical-repeating($gradient...){
+	background-image: -webkit-repeating-linear-gradient(top, $gradient); // Safari 5.1+, Chrome 10+
+	@if $prefixForOpera == true {
+		background-image: -o-repeating-linear-gradient(top, $gradient); // Opera 11.10
+	}
+	background-image: repeating-linear-gradient(to bottom, $gradient); // Standard, IE10
+}
+// 角度渐变
+// @include gradient-angle(45deg, #333 30%, #ccc);
+@mixin gradient-angle($gradient...) {
+	background-image: -webkit-linear-gradient($gradient); // Safari 5.1+, Chrome 10+
+	@if $prefixForOpera == true {
+		background-image: -o-linear-gradient($gradient); // Opera 11.10
+	}
+	background-image: linear-gradient($gradient); // Standard, IE1
+}
+// 角度渐变 平铺
+// @include gradient-angle-repeating(45deg, #333 30%, #ccc);
+@mixin gradient-angle-repeating($gradient...) {
+	background-image: -webkit-repeating-linear-gradient($gradient); // Safari 5.1+, Chrome 10+
+	@if $prefixForOpera == true {
+		background-image: -o-repeating-linear-gradient($gradient); // Opera 11.10
+	}
+	background-image: repeating-linear-gradient($gradient); // Standard, IE1
+}
+// 简单径向渐变
+// @include gradient-radial(#00F,#FFF);
+// 复杂的径向渐变后续添加
+@mixin gradient-radial($gradient...){
+	background-image: -webkit-radial-gradient($gradient); // Safari 5.1+, Chrome 10+
+	@if $prefixForOpera == true {
+		background-image: -o-radial-gradient($gradient); // Opera 11.10
+	}
+	background-image: radial-gradient($gradient); // Standard, IE1
+	background-repeat: no-repeat;
 }
