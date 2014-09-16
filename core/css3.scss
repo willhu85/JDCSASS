@@ -1,7 +1,7 @@
 @charset "UTF-8";
-/* =============================================================================
-   CSS3
-   ========================================================================== */
+// =============================================================================
+//   CSS3
+
 
 // 各个浏览器属性开关，true开启， false关闭
 // 默认会输出-webkit- 和 标准的属性
@@ -29,7 +29,6 @@ $prefixForOpera:        false !default;  //opera从版本15开始转向webkit，
 	// 默认输出不加前缀的
 	#{$property}: $value;
 }
-
 // 用于在属性值上加前缀(很少用)
 @mixin prefixer-value($property, $value) {
 	// 默认输出-webkit
@@ -46,7 +45,6 @@ $prefixForOpera:        false !default;  //opera从版本15开始转向webkit，
 	// 默认输出不加前缀的
 	#{$property}: $value;
 }
-
 
 // Animation
 // ==================================================================
@@ -89,7 +87,6 @@ $prefixForOpera:        false !default;  //opera从版本15开始转向webkit，
 	@include prefixer(backface-visibility,$visiblity);
 }
 
-
 // ==================================================================
 // box-shadow
 // 这个妖孽的...是用于填写多参数的东东
@@ -98,7 +95,6 @@ $prefixForOpera:        false !default;  //opera从版本15开始转向webkit，
 //  -webkit-box-shadow: $shadow; // 针对 iOS < 4.3 && Android < 4.1
 //          box-shadow: $shadow;
 }
-
 // box-sizing
 @mixin box-sizing($box-model) {
 	@include prefixer(box-sizing,$box-model);
@@ -117,7 +113,6 @@ $prefixForOpera:        false !default;  //opera从版本15开始转向webkit，
     color: $color;
   }
 }
-
 
 // transformations
 // ==================================================================
@@ -213,7 +208,6 @@ $prefixForOpera:        false !default;  //opera从版本15开始转向webkit，
 	}
 }
 
-
 // font-face
 // ==================================================================
 // http://www.css3files.com/font/
@@ -229,7 +223,6 @@ $prefixForOpera:        false !default;  //opera从版本15开始转向webkit，
 			 url('#{$file-path}.ttf') format('truetype');			 	 // ttf字体，支持移动端的safari&opera
 	}
 }
-
 // background-image
 // ==================================================================
 // border-box | padding-box | content-box
@@ -247,7 +240,6 @@ $prefixForOpera:        false !default;  //opera从版本15开始转向webkit，
 		@include prefixer(background-size, cover);
 	}
 }
-
 
 // Gradients 渐变
 // ==================================================================

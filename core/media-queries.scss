@@ -1,7 +1,6 @@
 @charset "UTF-8";
-/* =============================================================================
-   media-queries
-   ========================================================================== */
+// =============================================================================
+//   media-queries
 
 // 媒体查询部分
 
@@ -53,7 +52,7 @@
 }
 
 // iphone
-@mixin ip3($orientation: all) {
+@mixin iphone3($orientation: all) {
 	$minWidth: 320px;
 	$maxWidth: 480px;
 	$ratio: 1;
@@ -74,7 +73,7 @@
 		}
 	}
 }
-@mixin ip4($orientation: all) {
+@mixin iphone4($orientation: all) {
 	$minWidth: 320px;
 	$maxWidth: 480px;
 	$ratio: 2;
@@ -98,7 +97,7 @@
 		}
 	}
 }
-@mixin ip5($orientation: all) {
+@mixin iphone5($orientation: all) {
 	$minWidth: 320px;
 	$maxWidth: 568px;
 	$ratio: 2;

@@ -1,7 +1,6 @@
 @charset "UTF-8";
-/* =============================================================================
-   SCSS  config
-   ========================================================================== */
+// =============================================================================
+//   SCSS  config
 
 
 // 浏览器 配置 true开启， false关闭
@@ -11,17 +10,16 @@ $isFilter:          true !default;   //是否为IE6-8使用CSS3滤镜兼容
 
 // 字体配置
 // =============================================================================
-$defaultFontSize:       12px !default;      //默认基础字号12px
-$defaultLineHeight:     1.4 !default;       //默认行高1.4
-$defaultFontFamily:     "Helvetica Neue", Helvetica, STHeiTi, Tahoma, sans-serif;
-$fontSongTi:            "SimSun";            //宋体
-$fontYaHei:             "Microsoft Yahei";  //微软雅黑
-$fontHeiTi:             "SimHei";           //黑体
+$fontMobile:		 "Helvetica Neue", Helvetica, STHeiTi, Tahoma, sans-serif;
+$fontSongTi:         "SimSun";           //宋体
+$fontYaHei:          "Microsoft Yahei";  //微软雅黑
+$fontHeiTi:          "SimHei";           //黑体
 
-// 默认间距
-// =============================================================================
-$defaultSpace:          10px !default;
-
+$baseFontSize:       12px !default;      	//基础字号12px
+$baseLineHeight:     1.4 !default;       	//基础行高1.4
+$baseFontFamily:     $fontSongTi !default;	//基础字体
+$baseBgColor:		 #FFF !default;		//基础背景色
+$baseFontColor:		 #333 !default;		//基础字色
 
 // 颜色
 // =============================================================================
@@ -51,8 +49,6 @@ $black:         #111111 !default;
 
 // 链接色
 // =============================================================================
-// 如果只有$linkColor,则hover为draken 10%
-// 如果有$linkColorHover,则hover为$linkColorHover
 $linkColor:       $blue !default;
 $linkColorHover:  $navy !default;
 

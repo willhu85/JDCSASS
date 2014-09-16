@@ -1,32 +1,63 @@
 @charset "UTF-8";
+@import "../core/jdc-pc";
 
-@import "../core/config";
-@import "../core/css3";
-@import "../core/mixin";
-@import "../core/reset";
-
-$defaultFontFamily: $fontSongTi;
+$jdred: #E4393C;	//JD红
 
 body {
-    line-height: $defaultLineHeight;
-    background-color: $silver;
-    font-family: $defaultFontFamily;
-    color: $black;
+    line-height: $baseLineHeight;
+	font-size: $baseFontSize * 1.5;
+    background-color: $baseBgColor;
+    font-family: $baseFontFamily;
+	color: $baseFontColor;
 }
-
 .wrapper {
-
 }
-@include keyframes("testFrames") {
-	from {@include scale(2,1)}
-	to {@include scale(20,10)}
-};
 .wrapper-in {
-	padding-left: 1%;
-	padding-right: 1%;
-
+	@include fix;
 }
-.ss{
-	@include gradient-radial(#00F,#FFF);
-	@include ff{margin-left: 3px;}
+.slide-bar {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 300px;
+	height: 100%;
+	border-right: 1px solid $jdred;
+	background-color: lighten($jdred, 40%);
+	overflow: auto;
+	.slide-tit {
+		padding: 20px;
+		font-weight: bold;
+		font-size: $baseFontSize * 3;
+	}
+	.slide-tit-sub {
+		background-color: lighten($jdred, 10%);
+		border-bottom: $jdred;
+		color: $white;
+	}
+	.slide-ul {
+		li {
+			border-bottom: 1px solid lighten($jdred, 30%);
+			a {
+				display: block;
+				padding: 5px 10px;
+				color: $baseFontColor;
+			}
+		}
+	}
 }
+//.slide-bar {
+//	@include fix;
+//	@include gradient-vertical($jdred, darken($jdred, 10%));
+//	a{
+//		@include dib;
+//		@include float();
+//		padding: 10px 15px;
+//		border-right: 1px solid darken($jdred, 10%);
+//		font-size: 16px;
+//		font-weight: bold;
+//		color: $white;
+//		&:hover {
+//			@include gradient-vertical(darken($jdred, 5%), $jdred);
+//		}
+//	}
+//}
