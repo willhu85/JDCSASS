@@ -46,6 +46,42 @@ $prefixForOpera:        false !default;  //opera从版本15开始转向webkit，
 	#{$property}: $value;
 }
 
+// transition
+//-----------------------------------------------------
+@mixin transition($property...) {
+  @if length($property) >= 1 {
+    @include prefixer(transition, $property);
+  }
+  @else {
+    $property: all 0.3s ease;
+    @include prefixer(transition, $property);
+  }
+}
+
+// 默认不提供moz的，如有需要请自行添加
+// -moz-transition-property: transitionPropertyNames($property, moz);
+@mixin transition-property($property...) {
+  -webkit-transition-property: transitionPropertyNames($property);
+  @if $prefixForOpera {
+    -o-transition-property: transitionPropertyNames($property);
+  }
+  transition-property: transitionPropertyNames($property);
+}
+
+@mixin transition-duration($times...) {
+  @include prefixer(transition-duration, $times);
+}
+
+@mixin transition-timing-function($motions...) {
+  // timing-function
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/timing-function
+  @include prefixer(transition-timing-function, $motions);
+}
+
+@mixin transition-delay($times...) {
+  @include prefixer(transition-delay, $times);
+}
+
 // Animation
 // ==================================================================
 // eg: animation(test 5s infinite)
