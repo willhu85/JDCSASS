@@ -1,63 +1,107 @@
 @charset "UTF-8";
 @import "../core/jdc-pc";
 
-$jdred: #E4393C;	//JD红
+
+// 基础设置
+
+// 颜色
+$baseColor: #F4726D;
+$lightColor: lighten($baseColor, 10%);
+$drakColor: darken($baseColor, 10%);
+$linkColor: $baseColor;
+$fontColor: #CCC;
+
+$black: #333;
+$bgColor: #F5F5F5;
+
+
+// 字体
+$baseFontSize: 14px;
+$baseFontFamily: $fontYaHei;
 
 body {
     line-height: $baseLineHeight;
-	font-size: $baseFontSize * 1.5;
-    background-color: $baseBgColor;
+	font-size: $baseFontSize;
+    background-color: $bgColor;
     font-family: $baseFontFamily;
 	color: $baseFontColor;
+}
+a {
+	color: $linkColor;
 }
 .wrapper {
 }
 .wrapper-in {
 	@include fix;
 }
+
 .slide-bar {
 	position: absolute;
 	top: 0;
 	bottom: 0;
-	width: 300px;
+	width: 260px;
 	height: 100%;
-	border-right: 1px solid $jdred;
-	background-color: lighten($jdred, 40%);
+	border-right: 1px solid $baseColor;
+	background-color: $lightColor;
 	overflow: auto;
-	.slide-tit {
-		padding: 20px;
+}
+.slide-tit{
+	padding: 10px;
+	font-weight: bold;
+	color: $drakColor;
+}
+.nav-list {
+	border-top: 1px solid $baseColor;
+	border-bottom: 1px solid lighten($baseColor, 13%);
+	a {
+		position: relative;
+		display: block;
+		padding: 10px 20px;
 		font-weight: bold;
-		font-size: $baseFontSize * 3;
-	}
-	.slide-tit-sub {
-		background-color: lighten($jdred, 10%);
-		border-bottom: $jdred;
-		color: $white;
-	}
-	.slide-ul {
-		li {
-			border-bottom: 1px solid lighten($jdred, 30%);
-			a {
-				display: block;
-				padding: 5px 10px;
-				color: $baseFontColor;
-			}
+		color: $drakColor;
+		text-shadow: 1px 1px 0 lighten($baseColor, 20%);
+		&:after {
+			position: absolute;
+			width: 8px;
+			height: 8px;
+			right: 15px;
+			top: 15px;
+			border-top: 2px solid $drakColor;
+			border-right: 2px solid $drakColor;
+			content: "";
+			@include rotate(45deg);
 		}
 	}
+	&:hover {
+		background-color: lighten($baseColor, 13%);
+	}
 }
-//.slide-bar {
-//	@include fix;
-//	@include gradient-vertical($jdred, darken($jdred, 10%));
-//	a{
-//		@include dib;
-//		@include float();
-//		padding: 10px 15px;
-//		border-right: 1px solid darken($jdred, 10%);
-//		font-size: 16px;
-//		font-weight: bold;
-//		color: $white;
-//		&:hover {
-//			@include gradient-vertical(darken($jdred, 5%), $jdred);
-//		}
-//	}
-//}
+.sub-nav-list {
+	background-color: lighten($baseColor, 20%);
+	& a:hover {
+		background-color: $lightColor;
+	}
+}
+
+.main {
+	@include cell;
+	padding: 0 30px 0 300px;
+}
+.main-tit {
+	padding: 10px;
+	line-height: $baseLineHeight * 2;
+	border-bottom: 1px solid $drakColor;
+	font-size: $baseFontSize * 2;
+	color: $drakColor;
+}
+.content {
+	padding: 10px;
+	border-bottom: 1px dotted $fontColor;
+	h3 {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	img {
+		vertical-align: top;
+	}
+}

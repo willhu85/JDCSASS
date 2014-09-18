@@ -432,10 +432,13 @@ h1, h2, h3 {
 
 body {
   line-height: 1.4;
-  font-size: 18px;
-  background-color: #FFF;
-  font-family: "SimSun";
-  color: #333; }
+  font-size: 14px;
+  background-color: whitesmoke;
+  font-family: "Microsoft Yahei";
+  color: #333333; }
+
+a {
+  color: #f4726d; }
 
 .wrapper-in {
   *zoom: 1; }
@@ -448,24 +451,67 @@ body {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 300px;
+  width: 260px;
   height: 100%;
-  border-right: 1px solid #E4393C;
-  background-color: #fceded;
+  border-right: 1px solid #f4726d;
+  background-color: #f8a09c;
   overflow: auto; }
-  .slide-bar .slide-tit {
-    padding: 20px;
-    font-weight: bold;
-    font-size: 36px; }
-  .slide-bar .slide-tit-sub {
-    background-color: #ea6668;
-    border-bottom: #E4393C;
-    color: #FFFFFF; }
-  .slide-bar .slide-ul li {
-    border-bottom: 1px solid #f6c0c1; }
-    .slide-bar .slide-ul li a {
-      display: block;
-      padding: 5px 10px;
-      color: #333; }
 
-/*# sourceMappingURL=style.css.map */
+.slide-tit {
+  padding: 10px;
+  font-weight: bold;
+  color: #f0443e; }
+
+.nav-list {
+  border-top: 1px solid #f4726d;
+  border-bottom: 1px solid #f9aeab; }
+  .nav-list a {
+    position: relative;
+    display: block;
+    padding: 10px 20px;
+    font-weight: bold;
+    color: #f0443e;
+    text-shadow: 1px 1px 0 #fbcecc; }
+    .nav-list a:after {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      right: 15px;
+      top: 15px;
+      border-top: 2px solid #f0443e;
+      border-right: 2px solid #f0443e;
+      content: "";
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg); }
+  .nav-list:hover {
+    background-color: #f9aeab; }
+
+.sub-nav-list {
+  background-color: #fbcecc; }
+  .sub-nav-list a:hover {
+    background-color: #f8a09c; }
+
+.main {
+  display: table-cell;
+  *display: inline-block;
+  width: 2000px;
+  *width: auto;
+  padding: 0 30px 0 300px; }
+
+.main-tit {
+  padding: 10px;
+  line-height: 2.8;
+  border-bottom: 1px solid #f0443e;
+  font-size: 28px;
+  color: #f0443e; }
+
+.content {
+  padding: 10px;
+  border-bottom: 1px dotted #cccccc; }
+  .content h3 {
+    padding-top: 10px;
+    padding-bottom: 10px; }
+  .content img {
+    vertical-align: top; }
