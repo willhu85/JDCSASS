@@ -16,8 +16,12 @@ $bgColor: #F5F5F5;
 
 
 // 字体
-$baseFontSize: 14px;
+$baseFontSize: 16px;
 $baseFontFamily: $fontYaHei;
+
+%shadow {
+	box-shadow: 1px 1px 5px $fontColor;
+}
 
 body {
     line-height: $baseLineHeight;
@@ -36,7 +40,7 @@ a {
 }
 
 .slide-bar {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	bottom: 0;
 	width: 260px;
@@ -49,6 +53,7 @@ a {
 	padding: 10px;
 	font-weight: bold;
 	color: $drakColor;
+	text-shadow: 1px 1px 0 lighten($baseColor, 20%);
 }
 .nav-list {
 	border-top: 1px solid $baseColor;
@@ -92,7 +97,7 @@ a {
 	line-height: $baseLineHeight * 2;
 	border-bottom: 1px solid $drakColor;
 	font-size: $baseFontSize * 2;
-	color: $drakColor;
+	color: $drakColor;	
 }
 .content {
 	padding: 10px;
@@ -100,8 +105,63 @@ a {
 	h3 {
 		padding-top: 10px;
 		padding-bottom: 10px;
+		font-weight: bold;
 	}
 	img {
+		margin-left: 2px;
+		margin-right: 5px;
 		vertical-align: top;
+		@extend %shadow;
+	}
+	article {
+		line-height: $baseLineHeight * 1.5;
+		padding-bottom: 15px;
 	}
 }
+%tabCell {
+	padding: 5px 20px;;
+	border-right: 1px solid $fontColor;
+	border-bottom: 1px solid $fontColor;
+	font-size: 14px;
+	text-align: left;		
+}
+.tab {
+	width: 800px;
+	margin-bottom: 15px;
+	border-collapse: collapse;
+	border-left: 1px solid $fontColor;
+	border-top: 1px solid $fontColor;
+	@extend %shadow;		
+	td {
+		@extend %tabCell;		
+	}
+	th {
+		@extend %tabCell;	
+		background-color: lighten($fontColor, 10%);
+		&.explain {
+			width: 50%;
+		}
+	}
+}
+.color-box {
+	@include fix;
+	.color-items {
+		@include float();
+		@include rect(100px, auto);
+		margin-right: 20px;
+		margin-bottom: 20px;
+		padding: 1px;
+		border: 1px solid darken($fontColor, 10%);
+		background-color: $white;
+		box-shadow: 2px 1px 5px $fontColor;
+		i {
+			display: block;
+			@include rect(100px);
+		}
+		span {
+			display: block;
+			text-align: center;
+		}
+	}
+}
+

@@ -430,9 +430,12 @@ a {
 h1, h2, h3 {
   font-weight: normal; }
 
+.content img, .tab {
+  box-shadow: 1px 1px 5px #cccccc; }
+
 body {
   line-height: 1.4;
-  font-size: 14px;
+  font-size: 16px;
   background-color: whitesmoke;
   font-family: "Microsoft Yahei";
   color: #333333; }
@@ -448,7 +451,7 @@ a {
     clear: both; }
 
 .slide-bar {
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   width: 260px;
@@ -460,7 +463,8 @@ a {
 .slide-tit {
   padding: 10px;
   font-weight: bold;
-  color: #f0443e; }
+  color: #f0443e;
+  text-shadow: 1px 1px 0 #fbcecc; }
 
 .nav-list {
   border-top: 1px solid #f4726d;
@@ -504,7 +508,7 @@ a {
   padding: 10px;
   line-height: 2.8;
   border-bottom: 1px solid #f0443e;
-  font-size: 28px;
+  font-size: 32px;
   color: #f0443e; }
 
 .content {
@@ -512,6 +516,55 @@ a {
   border-bottom: 1px dotted #cccccc; }
   .content h3 {
     padding-top: 10px;
-    padding-bottom: 10px; }
+    padding-bottom: 10px;
+    font-weight: bold; }
   .content img {
+    margin-left: 2px;
+    margin-right: 5px;
     vertical-align: top; }
+  .content article {
+    line-height: 2.1;
+    padding-bottom: 15px; }
+
+.tab td, .tab th {
+  padding: 5px 20px;
+  border-right: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  font-size: 14px;
+  text-align: left; }
+
+.tab {
+  width: 800px;
+  margin-bottom: 15px;
+  border-collapse: collapse;
+  border-left: 1px solid #cccccc;
+  border-top: 1px solid #cccccc; }
+  .tab th {
+    background-color: #e6e6e6; }
+    .tab th.explain {
+      width: 50%; }
+
+.color-box {
+  *zoom: 1; }
+  .color-box:after {
+    display: table;
+    content: '';
+    clear: both; }
+  .color-box .color-items {
+    float: left;
+    display: inline;
+    width: 100px;
+    height: auto;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 1px;
+    border: 1px solid #b3b3b3;
+    background-color: white;
+    box-shadow: 2px 1px 5px #cccccc; }
+    .color-box .color-items i {
+      display: block;
+      width: 100px;
+      height: 100px; }
+    .color-box .color-items span {
+      display: block;
+      text-align: center; }

@@ -17,25 +17,27 @@
 					<a href="javascript:;" data-url="">简介</a>
 				</li>
 				<li class="nav-list">
-					<a href="javascript:;">Core</a>
+					<a href="#floor-core">Core</a>
 					<ul class="sub-nav-list">
-						<li><a href="#floor1">reset</a></li>
-						<li><a href="#floor2">media-queries</a></li>
-						<li><a href="#floor3">mixin</a></li>
-						<li><a href="#floor4">css3</a></li>
-						<li><a href="#floor4">config</a></li>
-						<li><a href="#">demo</a></li>
+						<li><a href="#floor-config">config</a></li>
+						<li><a href="#floor-css3">css3</a></li>
+						<li><a href="#floor-mixin">mixin</a></li>
+						<li><a href="#floor-media-queries">media-queries</a></li>
+						<li><a href="#floor-reset">reset</a></li>
+						<li><a href="#floor-jdc-pc">jdc-pc</a></li>
+						<li><a href="#floor-jdc-m">jdc-m</a></li>
+						<li><a href="#floor-jdc-m-active">jdc-m-active</a></li>
+						<li><a href="#floor-demo">demo</a></li>
 					</ul>
 				</li>
 				<li class="nav-list">
 					<a href="javascript:;">Plugin</a>
 					<ul class="sub-nav-list">
-						<li><a href="#floor1">reset</a></li>
-						<li><a href="#floor2">media-queries</a></li>
-						<li><a href="#floor3">mixin</a></li>
-						<li><a href="#floor4">css3</a></li>
-						<li><a href="#floor4">config</a></li>
-						<li><a href="#">demo</a></li>
+						<li><a href="">From</a></li>
+						<li><a href="">Table</a></li>
+						<li><a href="">Alert</a></li>
+						<li><a href="">Date</a></li>
+						<li><a href="">持续更新中...</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -43,11 +45,257 @@
 
 		<!-- 内容部分 -->
 		<div class="main">
+			<!-- 简介 -->
 			<h1 class="main-tit">简介</h1>
 			<div class="content">
 				<h3>为什么创建这个框架？</h3>
-				<p>由于所处无线设计部门的工作性质，会有涉及到平台、APP内嵌、H5、iPad、各种PC端和移动端的活动。往往每个项目都需要一个类似<img src="img/pic1.png" alt="">这样的目录</p>
-			</div>			
+				<article>由于所处无线设计部门的工作性质，会有涉及到平台、APP内嵌、H5、iPad、各种PC端和移动端的活动。往往每个项目都需要一个类似<img src="img/pic1.png" alt="目录结构">这样的目录，然后再把CSS、JS、模板HTML复制进去。然后对于不同类型的项目要区分不同类型的JS&CSS&HTML,作为一个合格的coder是不是已经觉得头大了。那就对了，因为在这个粘贴复制的过程中会出现大量的问题，比如原始版本的CSS不一致，写好的代码不能复用。移动端各种各样的前缀，各种新特性。再加上组员负责的项目不同，无法及时的更新信息。会导致有重复的工作和代码BUG。这时候，一个基本的CSS框架的重要性就体现出来了。大家共同维护核心部分，支持大部分的CSS3和预定义一些特殊的属性，然后组员们在此基础上在写针对每个项目不同的东西，这样就可以把这种兼容适配的时间节省下来，去完成复杂的业务逻辑了。目前JDCSASS只是完成了最基本的CSS部分的Core部分，后续会不断的完善CSS样式组件，默认图标，JS组件等。最终目标是能成为一个适用于PC、移动的类似bootstrap的框架。<br />从此工作效率提高，升职、加薪、担任总经理，出任CEO、赢取白富美(不能告诉老婆)、走向人生巅峰，想想都有些小激动呢。<br /><img src="img/pic2.jpg" width="200" alt="想想都有些小激动啊"></article>				
+			</div>
+			<div class="content">
+				<h3>前期准备</h3>
+				<article>既然是SASS框架，那首先需要了解一下SASS的基本知识。这个可以从网上查到很多。<br />
+					SASS官网：<a href="http://sass-lang.com/" target="_blank">http://sass-lang.com/</a><br />
+					SASS中文：<a href="http://sass.bootcss.com/" target="_blank">http://sass.bootcss.com/</a><br />
+					<!-- 携程的SASS入门：<a href="http://www.w3cplus.com/sassguide/" target="_blank">http://www.w3cplus.com/sassguide/</a><br /> -->
+					书籍：《Sass与Compass实战》<a href="">电子版</a>
+				</article>
+			</div>
+			<div class="content">
+				<h3>开发工具</h3>
+				<article>待更新...</article>
+			</div>
+			<div class="content">
+				<h3>开发流程</h3>
+				<article>待更新...</article>
+			</div>
+
+			<!-- Core -->
+			<h1 id="floor-core" class="main-tit">Core</h1>
+			<div class="content">
+				<article>Core有以下几个SCSS组成:<br />
+					<strong>config</strong>: config 目的是用于定义一些初始的变量，如颜色，基本字体，浏览器配置等等。<br />
+					<strong>css3</strong>: css3集合了常用CSS3的mixin，如动画、过渡、变形等<br />
+					<strong>mixin</strong>: mixin集合了常用的一些CSS组合属性，例如fix、ellipsis文字溢出，透明、三角形等等。<br />
+					<strong>media-queries</strong>: media-queries顾名思义，就是放了一些媒体查询的东东<br />
+					<strong>reset</strong>: CSS reset 用了normalize.css，并对其进行了一些针对性的补充
+					<strong>另外还有三个文件，是用于不同平台调用使用</strong><br />
+					<strong>jdc-pc</strong>: 针对PC端<br />
+					<strong>jdc-m</strong>: 针对移动端<br />
+					<strong>jdc-m-active</strong>: 针对移动端的运营活动，用了一个简略版的reset<br />
+				</article>
+			</div>
+			<div class="content">
+				<h3>Config</h3>
+				<article>
+					<p>config目前包含</p>
+					<strong>常用配置</strong>
+					<table class="tab" cellpadding="0" cellspacing="0">
+						<tr>
+							<th>变量</th>
+							<th>默认值</th>
+							<th class="explain">说明</th>
+						</tr>
+						<tr>
+							<td>$isIe67</td>
+							<td>true</td>
+							<td>是否兼容IE6-7,true开启， false关闭</td>
+						</tr>
+						<tr>
+							<td>$isFilter</td>
+							<td>true</td>
+							<td>是否为IE6-8使用CSS3滤镜兼容,true开启， false关闭</td>
+						</tr>
+						<tr>
+							<td>$fontMobile</td>
+							<td>"Helvetica Neue", Helvetica, STHeiTi, Tahoma, sans-serif;</td>
+							<td>手机端默认字体</td>
+						</tr>
+						<tr>
+							<td>$fontSongTi</td>
+							<td>"SimSun"</td>
+							<td>宋体</td>
+						</tr>
+						<tr>
+							<td>$fontYaHei</td>
+							<td>"Microsoft Yahei"</td>
+							<td>微软雅黑</td>
+						</tr>
+						<tr>
+							<td>$fontHeiTi</td>
+							<td>"SimHei"</td>
+							<td>黑体</td>
+						</tr>
+					</table>
+					<strong>默认颜色</strong>
+					<p>默认颜色基于http://clrs.cc项目</p>
+					<div class="color-box">
+						<span class="color-items">
+							<i style="background-color: #001F3F"></i>
+							<span>$navy #001F3F</span>
+						</span>
+						<span class="color-items">
+							<i style="background-color: #0074D9"></i>
+							<span>$blue #0074D9</span>
+						</span>
+						<span class="color-items">
+							<i style="background-color: #7FDBFF"></i>
+							<span>$aqua #7FDBFF</span>
+						</span>
+						<span class="color-items">
+							<i style="background-color: #39CCCC"></i>
+							<span>$teal #39CCCC</span>
+						</span>
+						<span class="color-items">
+							<i style="background-color: #3D9970"></i>
+							<span>$olive #3D9970</span>
+						</span>
+						<span class="color-items">
+							<i style="background-color: #2ECC40"></i>
+							<span>$green #2ECC40</span>
+						</span>
+						<span class="color-items">
+							<i style="background-color: #01FF70"></i>
+							<span>$lime #01FF70</span>
+						</span>
+						<span class="color-items">
+							<i style="background-color: #FFDC00"></i>
+							<span>$yellow #FFDC00</span>
+						</span>
+						<span class="color-items">
+							<i style="background-color: #FF851B"></i>
+							<span>$orange #FF851B</span>
+						</span>
+						<span class="color-items">
+							<i style="background-color: #FF4136"></i>
+							<span>$red #FF4136</span>
+						</span>
+						<span class="color-items">
+							<i style="background-color: #FF4136"></i>
+							<span>$red #FF4136</span>
+						</span>
+						<span class="color-items">
+							<i style="background-color: #F012BE"></i>
+							<span>$fuchsia #F012BE</span>
+						</span>
+						<span class="color-items">
+							<i style="background-color: #B10DC9"></i>
+							<span>$purple #B10DC9</span>
+						</span>						
+						<span class="color-items">
+							<i style="background-color: #85144B"></i>
+							<span>$maroon #85144B</span>
+						</span>
+						<span class="color-items">
+							<i style="background-color: #FFFFFF"></i>
+							<span>$white #FFFFFF</span>
+						</span>
+						<span class="color-items">
+							<i style="background-color: #DDDDDD"></i>
+							<span>$silver #DDDDDD</span>
+						</span>
+						<span class="color-items">
+							<i style="background-color: #AAAAAA"></i>
+							<span>$gray #AAAAAA</span>
+						</span>
+						<span class="color-items">
+							<i style="background-color: #111111"></i>
+							<span>$black #111111</span>
+						</span>
+					</div>
+					<strong>基础配置(商讨中)</strong>
+					<p></p>
+					<table class="tab" cellpadding="0" cellspacing="0">
+						<tr>
+							<th>变量</th>
+							<th>默认值</th>
+							<th class="explain">说明</th>
+						</tr>
+						<tr>
+							<td>$baseFontSize</td>
+							<td>12px</td>
+							<td>基础字号</td>
+						</tr>
+						<tr>
+							<td>$baseLineHeight</td>
+							<td>1.4</td>
+							<td>基础行高</td>
+						</tr>
+						<tr>
+							<td>$baseFontFamily</td>
+							<td>$fontSongTi</td>
+							<td>基础字体</td>
+						</tr>
+						<tr>
+							<td>$baseBgColor</td>
+							<td>$white</td>
+							<td>基础背景色</td>
+						</tr>
+						<tr>
+							<td>$baseFontColor</td>
+							<td>$black * 3</td>
+							<td>基础字色</td>
+						</tr>
+						<tr>
+							<td>$linkColor</td>
+							<td>$blue</td>
+							<td>默认链接色</td>
+						</tr>
+						<tr>
+							<td>$linkColorHover</td>
+							<td>$navy</td>
+							<td>默认链接hover色</td>
+						</tr>
+					</table>
+					<strong>交互颜色</strong>
+					<p>四种状态: 警告,错误,成功,提示</p>
+					<p>每个状态有三个值: 文本色,背景色,边框色</p>
+					<p>具体的商讨中...</p>
+				</article>
+			</div>
+			<!-- CSS3 -->
+			<div class="content">
+				<h3>CSS3</h3>
+				<article>
+					<strong>浏览器前缀开关,通过prefixer/prefixer-value方法处理CSS3</strong>
+					<table class="tab" cellpadding="0" cellspacing="0">
+						<tr>
+							<th>变量</th>
+							<th>默认值</th>
+							<th class="explain">说明</th>
+						</tr>
+						<tr>
+							<td>$prefixForWebkit</td>
+							<td>true</td>
+							<td>目前默认输出,无法更改</td>
+						</tr>
+						<tr>
+							<td>$prefixForMozilla</td>
+							<td>true</td>
+							<td>是否输出-moz-前缀</td>
+						</tr>
+						<tr>
+							<td>$prefixForMicrosoft</td>
+							<td>true</td>
+							<td>是否输出-ms-前缀</td>
+						</tr>
+						<tr>
+							<td>$fontSongTi</td>
+							<td>"SimSun"</td>
+							<td>宋体</td>
+						</tr>
+						<tr>
+							<td>$fontYaHei</td>
+							<td>"Microsoft Yahei"</td>
+							<td>微软雅黑</td>
+						</tr>
+						<tr>
+							<td>$fontHeiTi</td>
+							<td>"SimHei"</td>
+							<td>黑体</td>
+						</tr>
+					</table>
+				</article>
+			</div>
 		</div>
 	</div>
 </div>

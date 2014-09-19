@@ -15,11 +15,6 @@ $fontSongTi:         "SimSun";           //宋体
 $fontYaHei:          "Microsoft Yahei";  //微软雅黑
 $fontHeiTi:          "SimHei";           //黑体
 
-$baseFontSize:       12px !default;      	//基础字号12px
-$baseLineHeight:     1.4 !default;       	//基础行高1.4
-$baseFontFamily:     $fontSongTi !default;	//基础字体
-$baseBgColor:		 #FFF !default;		//基础背景色
-$baseFontColor:		 #333 !default;		//基础字色
 
 // 颜色
 // =============================================================================
@@ -46,6 +41,14 @@ $white:         #FFFFFF !default;
 $silver:        #DDDDDD !default;
 $gray:          #AAAAAA !default;
 $black:         #111111 !default;
+
+// 基础配置
+
+$baseFontSize:       12px !default;      	//基础字号12px
+$baseLineHeight:     1.4 !default;       	//基础行高1.4
+$baseFontFamily:     $fontSongTi !default;	//基础字体
+$baseBgColor:		 $white !default;		//基础背景色
+$baseFontColor:		 $black * 3 !default;	//基础字色
 
 // 链接色
 // =============================================================================
