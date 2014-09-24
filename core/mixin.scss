@@ -219,7 +219,9 @@
 }
 // 圆形
 @mixin circle($px) {
-
+    width: $px;
+    height: $px;
+    border-radius: 50%;
 }
 
 

@@ -12,9 +12,9 @@
 		<!-- 侧边栏 -->
 		<div class="slide-bar">
 			<h1 class="slide-tit">JDCSASS文档</h1>
-			<ul>
+			<ul class="j-slide-nav">
 				<li class="nav-list">
-					<a href="javascript:;" data-url="">简介</a>
+					<a href="#floor-intro">简介</a>
 				</li>
 				<li class="nav-list">
 					<a href="#floor-core">Core</a>
@@ -27,7 +27,6 @@
 						<li><a href="#floor-jdc-pc">jdc-pc</a></li>
 						<li><a href="#floor-jdc-m">jdc-m</a></li>
 						<li><a href="#floor-jdc-m-active">jdc-m-active</a></li>
-						<li><a href="#floor-demo">demo</a></li>
 					</ul>
 				</li>
 				<li class="nav-list">
@@ -46,7 +45,7 @@
 		<!-- 内容部分 -->
 		<div class="main">
 			<!-- 简介 -->
-			<h1 class="main-tit">简介</h1>
+			<h1 id="floor-intro" class="main-tit">简介</h1>
 			<div class="content">
 				<h3>为什么创建这个框架？</h3>
 				<article>由于所处无线设计部门的工作性质，会有涉及到平台、APP内嵌、H5、iPad、各种PC端和移动端的活动。往往每个项目都需要一个类似<img src="img/pic1.png" alt="目录结构">这样的目录，然后再把CSS、JS、模板HTML复制进去。然后对于不同类型的项目要区分不同类型的JS&CSS&HTML,作为一个合格的coder是不是已经觉得头大了。那就对了，因为在这个粘贴复制的过程中会出现大量的问题，比如原始版本的CSS不一致，写好的代码不能复用。移动端各种各样的前缀，各种新特性。再加上组员负责的项目不同，无法及时的更新信息。会导致有重复的工作和代码BUG。这时候，一个基本的CSS框架的重要性就体现出来了。大家共同维护核心部分，支持大部分的CSS3和预定义一些特殊的属性，然后组员们在此基础上在写针对每个项目不同的东西，这样就可以把这种兼容适配的时间节省下来，去完成复杂的业务逻辑了。目前JDCSASS只是完成了最基本的CSS部分的Core部分，后续会不断的完善CSS样式组件，默认图标，JS组件等。最终目标是能成为一个适用于PC、移动的类似bootstrap的框架。<br />从此工作效率提高，升职、加薪、担任总经理，出任CEO、赢取白富美(不能告诉老婆)、走向人生巅峰，想想都有些小激动呢。<br /><img src="img/pic2.jpg" width="200" alt="想想都有些小激动啊"></article>				
@@ -724,8 +723,44 @@
 					</table>
 				</article>
 			</div>
+			<!-- reset -->
+			<div class="content">
+				<h3 id="floor-reset">reset</h3>
+				<article>
+					css reset 没有什么说的，基于normalize.css，然后按照国情修改了点
+				</article>
+			</div>
+			<!-- jdc-pc -->
+			<div class="content">
+				<h3 id="floor-jdc-pc">jdc-pc</h3>
+				<article>
+					整合了前面的几个SCSS，主要用于PC端
+				</article>
+			</div>
+			<!-- jdc-m -->
+			<div class="content">
+				<h3 id="floor-jdc-m">jdc-m</h3>
+				<article>
+					整合了前面的几个SCSS，主要用于移动端，设置了下IE兼容了浏览器开关
+				</article>
+			</div>
+			<!-- jdc-m-active -->
+			<div class="content">
+				<h3 id="floor-jdc-m-active">jdc-m-active</h3>
+				<article>
+					整合了前面的几个SCSS，主要用于移动端活动页，预置了一些样式和方法
+				</article>
+			</div>
 		</div>
 	</div>
 </div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+	$(function() {
+		var eleSlideLi = $(".j-slide-navli li");
+		eleSlideUl
+	})
+</script>
 </body>
 </html>
