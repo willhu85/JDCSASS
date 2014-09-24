@@ -58,14 +58,13 @@ $prefixForOpera:        false !default;  //opera从版本15开始转向webkit，
   }
 }
 
-// 默认不提供moz的，如有需要请自行添加
-// -moz-transition-property: transitionPropertyNames($property, moz);
 @mixin transition-property($property...) {
-  -webkit-transition-property: transitionPropertyNames($property);
-  @if $prefixForOpera {
-    -o-transition-property: transitionPropertyNames($property);
-  }
-  transition-property: transitionPropertyNames($property);
+  // -webkit-transition-property: transitionPropertyNames($property);
+  // @if $prefixForOpera {
+  //   -o-transition-property: transitionPropertyNames($property);
+  // }
+  // transition-property: transitionPropertyNames($property);
+  @include prefixer(transition-property, $property);
 }
 
 @mixin transition-duration($times...) {
@@ -128,8 +127,6 @@ $prefixForOpera:        false !default;  //opera从版本15开始转向webkit，
 // 这个妖孽的...是用于填写多参数的东东
 @mixin box-shadow($shadow...) {
 	@include prefixer(box-shadow,$shadow);
-//  -webkit-box-shadow: $shadow; // 针对 iOS < 4.3 && Android < 4.1
-//          box-shadow: $shadow;
 }
 // box-sizing
 @mixin box-sizing($box-model) {

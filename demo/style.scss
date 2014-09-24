@@ -9,7 +9,7 @@ $baseColor: #F4726D;
 $lightColor: lighten($baseColor, 10%);
 $drakColor: darken($baseColor, 10%);
 $linkColor: $baseColor;
-$fontColor: #CCC;
+$grayColor: #CCC;
 
 $black: #333;
 $bgColor: #F5F5F5;
@@ -20,7 +20,7 @@ $baseFontSize: 16px;
 $baseFontFamily: $fontYaHei;
 
 %shadow {
-	box-shadow: 1px 1px 5px $fontColor;
+	box-shadow: 1px 1px 5px $grayColor;
 }
 
 body {
@@ -32,6 +32,14 @@ body {
 }
 a {
 	color: $linkColor;
+}
+pre {
+	padding: 10px 20px;
+	border-radius: 20px;
+	border: 1px solid $grayColor;
+	@include box-shadow(inset 0 0 20px $grayColor);
+	background-color: $black;
+	color: $white;
 }
 .wrapper {
 }
@@ -101,7 +109,7 @@ a {
 }
 .content {
 	padding: 10px;
-	border-bottom: 1px dotted $fontColor;
+	border-bottom: 1px dotted $grayColor;
 	h3 {
 		padding-top: 10px;
 		padding-bottom: 10px;
@@ -118,31 +126,6 @@ a {
 		padding-bottom: 15px;
 	}
 }
-%tabCell {
-	padding: 5px 20px;;
-	border-right: 1px solid $fontColor;
-	border-bottom: 1px solid $fontColor;
-	font-size: 14px;
-	text-align: left;		
-}
-.tab {
-	width: 800px;
-	margin-bottom: 15px;
-	border-collapse: collapse;
-	border-left: 1px solid $fontColor;
-	border-top: 1px solid $fontColor;
-	@extend %shadow;		
-	td {
-		@extend %tabCell;		
-	}
-	th {
-		@extend %tabCell;	
-		background-color: lighten($fontColor, 10%);
-		&.explain {
-			width: 50%;
-		}
-	}
-}
 .color-box {
 	@include fix;
 	.color-items {
@@ -151,9 +134,9 @@ a {
 		margin-right: 20px;
 		margin-bottom: 20px;
 		padding: 1px;
-		border: 1px solid darken($fontColor, 10%);
+		border: 1px solid darken($grayColor, 10%);
 		background-color: $white;
-		box-shadow: 2px 1px 5px $fontColor;
+		box-shadow: 2px 1px 5px $grayColor;
 		i {
 			display: block;
 			@include rect(100px);
@@ -165,3 +148,32 @@ a {
 	}
 }
 
+
+%tabCell {
+	padding: 5px 20px;;
+	border-right: 1px solid $grayColor;
+	border-bottom: 1px solid $grayColor;
+	font-size: 14px;
+	text-align: left;		
+}
+.tab {
+	margin-bottom: 15px;
+	border-collapse: collapse;
+	border-left: 1px solid $grayColor;
+	border-top: 1px solid $grayColor;
+	@extend %shadow;		
+	td {
+		@extend %tabCell;		
+	}
+	th {
+		@extend %tabCell;	
+		background-color: lighten($grayColor, 10%);
+		&.explain {
+			width: 50%;
+		}
+		// &[size="1"] {
+		// 	width: 10%;
+		// }
+	}
+	
+}

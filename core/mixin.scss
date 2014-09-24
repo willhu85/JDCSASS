@@ -124,33 +124,6 @@
     filter: alpha(opacity = $opacity * 100);
   }
 }
-// 三角
-@mixin triangle($direction, $width, $color) {
-  content: "";
-  width: 0;
-  height: 0;
-  overflow: hidden;
-  @if $direction == top {
-    border-bottom: $width solid $color;
-    border-left: $width dashed transparent;
-    border-right: $width dashed transparent;
-  }
-  @else if $direction == bottom {
-    border-top: $width solid $color;
-    border-left: $width dashed transparent;
-    border-right: $width dashed transparent;
-  }
-  @else if $direction == left {
-    border-right: $width solid $color;
-    border-top: $width dashed transparent;
-    border-bottom: $width dashed transparent;
-  }
-  @else if $direction == right {
-    border-left: $width solid $color;
-    border-top: $width dashed transparent;
-    border-bottom: $width dashed transparent;
-  }
-}
 // 黑色半透明
 @mixin alpha-bg($bgcolor: rgba(0,0,0,.5)) {
   color: #FFF;
@@ -216,6 +189,33 @@
         width: $px;
         height: $px;
     }
+}
+// 三角
+@mixin triangle($direction, $width, $color) {
+  content: "";
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  @if $direction == top {
+    border-bottom: $width solid $color;
+    border-left: $width dashed transparent;
+    border-right: $width dashed transparent;
+  }
+  @else if $direction == bottom {
+    border-top: $width solid $color;
+    border-left: $width dashed transparent;
+    border-right: $width dashed transparent;
+  }
+  @else if $direction == left {
+    border-right: $width solid $color;
+    border-top: $width dashed transparent;
+    border-bottom: $width dashed transparent;
+  }
+  @else if $direction == right {
+    border-left: $width solid $color;
+    border-top: $width dashed transparent;
+    border-bottom: $width dashed transparent;
+  }
 }
 // 圆形
 @mixin circle($px) {

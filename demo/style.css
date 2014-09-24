@@ -431,17 +431,28 @@ h1, h2, h3 {
   font-weight: normal; }
 
 .content img, .tab {
-  box-shadow: 1px 1px 5px #cccccc; }
+  box-shadow: 1px 1px 5px #CCC; }
 
 body {
   line-height: 1.4;
   font-size: 16px;
-  background-color: whitesmoke;
+  background-color: #F5F5F5;
   font-family: "Microsoft Yahei";
   color: #333333; }
 
 a {
-  color: #f4726d; }
+  color: #F4726D; }
+
+pre {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 1px solid #CCC;
+  -webkit-box-shadow: inset 0 0 20px #CCC;
+  -moz-box-shadow: inset 0 0 20px #CCC;
+  -ms-box-shadow: inset 0 0 20px #CCC;
+  box-shadow: inset 0 0 20px #CCC;
+  background-color: #333;
+  color: #FFFFFF; }
 
 .wrapper-in {
   *zoom: 1; }
@@ -456,7 +467,7 @@ a {
   bottom: 0;
   width: 260px;
   height: 100%;
-  border-right: 1px solid #f4726d;
+  border-right: 1px solid #F4726D;
   background-color: #f8a09c;
   overflow: auto; }
 
@@ -467,7 +478,7 @@ a {
   text-shadow: 1px 1px 0 #fbcecc; }
 
 .nav-list {
-  border-top: 1px solid #f4726d;
+  border-top: 1px solid #F4726D;
   border-bottom: 1px solid #f9aeab; }
   .nav-list a {
     position: relative;
@@ -513,7 +524,7 @@ a {
 
 .content {
   padding: 10px;
-  border-bottom: 1px dotted #cccccc; }
+  border-bottom: 1px dotted #CCC; }
   .content h3 {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -525,24 +536,6 @@ a {
   .content article {
     line-height: 2.1;
     padding-bottom: 15px; }
-
-.tab td, .tab th {
-  padding: 5px 20px;
-  border-right: 1px solid #cccccc;
-  border-bottom: 1px solid #cccccc;
-  font-size: 14px;
-  text-align: left; }
-
-.tab {
-  width: 800px;
-  margin-bottom: 15px;
-  border-collapse: collapse;
-  border-left: 1px solid #cccccc;
-  border-top: 1px solid #cccccc; }
-  .tab th {
-    background-color: #e6e6e6; }
-    .tab th.explain {
-      width: 50%; }
 
 .color-box {
   *zoom: 1; }
@@ -559,8 +552,8 @@ a {
     margin-bottom: 20px;
     padding: 1px;
     border: 1px solid #b3b3b3;
-    background-color: white;
-    box-shadow: 2px 1px 5px #cccccc; }
+    background-color: #FFFFFF;
+    box-shadow: 2px 1px 5px #CCC; }
     .color-box .color-items i {
       display: block;
       width: 100px;
@@ -568,3 +561,22 @@ a {
     .color-box .color-items span {
       display: block;
       text-align: center; }
+
+.tab td, .tab th {
+  padding: 5px 20px;
+  border-right: 1px solid #CCC;
+  border-bottom: 1px solid #CCC;
+  font-size: 14px;
+  text-align: left; }
+
+.tab {
+  margin-bottom: 15px;
+  border-collapse: collapse;
+  border-left: 1px solid #CCC;
+  border-top: 1px solid #CCC; }
+  .tab th {
+    background-color: #e6e6e6; }
+    .tab th.explain {
+      width: 50%; }
+
+/*# sourceMappingURL=style.css.map */

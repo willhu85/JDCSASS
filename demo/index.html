@@ -85,11 +85,11 @@
 				</article>
 			</div>
 			<div class="content">
-				<h3>Config</h3>
+				<h3 id="floor-config">Config</h3>
 				<article>
 					<p>config目前包含</p>
 					<strong>常用配置</strong>
-					<table class="tab" cellpadding="0" cellspacing="0">
+					<table width="80%" class="tab" cellpadding="0" cellspacing="0">
 						<tr>
 							<th>变量</th>
 							<th>默认值</th>
@@ -204,7 +204,7 @@
 					</div>
 					<strong>基础配置(商讨中)</strong>
 					<p></p>
-					<table class="tab" cellpadding="0" cellspacing="0">
+					<table width="80%" class="tab" cellpadding="0" cellspacing="0">
 						<tr>
 							<th>变量</th>
 							<th>默认值</th>
@@ -254,10 +254,10 @@
 			</div>
 			<!-- CSS3 -->
 			<div class="content">
-				<h3>CSS3</h3>
+				<h3 id="floor-css3">CSS3</h3>
 				<article>
 					<strong>浏览器前缀开关,通过prefixer/prefixer-value方法处理CSS3</strong>
-					<table class="tab" cellpadding="0" cellspacing="0">
+					<table width="80%" class="tab" cellpadding="0" cellspacing="0">
 						<tr>
 							<th>变量</th>
 							<th>默认值</th>
@@ -279,9 +279,9 @@
 							<td>是否输出-ms-前缀</td>
 						</tr>
 						<tr>
-							<td>$fontSongTi</td>
-							<td>"SimSun"</td>
-							<td>宋体</td>
+							<td>$prefixForOpera</td>
+							<td>false</td>
+							<td>是否输出-o-前缀<br />(Opera 15后内核从Presto改成webkit了，本来用的人就少，还升级了，所以默认不输出)</td>
 						</tr>
 						<tr>
 							<td>$fontYaHei</td>
@@ -289,9 +289,437 @@
 							<td>微软雅黑</td>
 						</tr>
 						<tr>
-							<td>$fontHeiTi</td>
-							<td>"SimHei"</td>
-							<td>黑体</td>
+							<td colspan="3"><strong>默认一直会输出不加前缀的</strong></td>
+						</tr>
+					</table>
+					<strong>包含的mixin</strong>
+					<pre>test {
+	@include animation(myDemo 5s);
+}</pre>
+					<table width="80%" class="tab" cellpadding="0" cellspacing="0">
+						<tr>
+							<th size="1">mixin</th>
+							<th>范例 [ ]内为选填</th>
+							<th class="explain">说明</th>
+						</tr>
+						<tr>
+							<td>transition</td>
+							<td>transition([width 1s ease-in])</td>
+							<td>若无参数则默认为transition(all 0.3s ease)</td>
+						</tr>
+						<tr>
+							<td>transition-property</td>
+							<td>transition-property(cssName)</td>
+							<td>transition-property为CSS过渡属性名称</td>
+						</tr>
+						<tr>
+							<td>transition-duration</td>
+							<td>transition-duration(times)</td>
+							<td>transition-duration为CSS过渡持续时间</td>
+						</tr>
+						<tr>
+							<td>transition-timing-function</td>
+							<td>transition-timing-function(motions)</td>
+							<td>transition-duration为CSS过渡效果</td>
+						</tr>
+						<tr>
+							<td>transition-delay</td>
+							<td>transition-delay(times)</td>
+							<td>transition-delay为CSS过渡延时</td>
+						</tr>
+						<tr>
+							<td>animation</td>
+							<td>animation(animation)</td>
+							<td>eg: animation(test 5s infinite)，配合keyframes使用</td>
+						</tr>
+						<tr>
+							<td>animation-name</td>
+							<td>animation-name(name)</td>
+							<td>animation-name为动画的名称</td>
+						</tr>
+						<tr>
+							<td>animation-duration</td>
+							<td>animation-duration(duration)</td>
+							<td>animation-duration为动画所花费的时间</td>
+						</tr>
+						<tr>
+							<td>animation-timing-function</td>
+							<td>animation-timing-function(timing-function)</td>
+							<td>animation-timing-function为动画的速度曲线(linear,ease,ease-in,ease-out)</td>
+						</tr>
+						<tr>
+							<td>animation-delay</td>
+							<td>animation-delay(delay)</td>
+							<td>animation-delay为动画开始前的延迟</td>
+						</tr>
+						<tr>
+							<td>animation-iteration-count</td>
+							<td>animation-iteration-count(iteration-count)</td>
+							<td>animation-iteration-count为动画播放的次数</td>
+						</tr>
+						<tr>
+							<td>animation-direction</td>
+							<td>animation-direction(direction)</td>
+							<td>animation-direction为是否反向播放动画<br />(normal默认值,动画应该正常播放。alternate，动画应该轮流反向播放)</td>
+						</tr>
+						<tr>
+							<td>animation-fill-mode</td>
+							<td>animation-fill-mode(fill-mode)</td>
+							<td>animation-fill-mode为结束时动画停留的位置<br />
+								none:不改变默认行为<br />
+								forwards:当动画完成后，保持最后一个属性值（在最后一个关键帧中定义）。<br />
+								backwards:在 animation-delay 所指定的一段时间内，在动画显示之前，应用开始属性值（在第一个关键帧中定义）<br />
+								both:向前和向后填充模式都被应用<br />
+							</td>
+						</tr>
+						<tr>
+							<td>backface-visibility</td>
+							<td>backface-visibility([visiblity])</td>
+							<td>backface-visibility用于3D效果时是否显示背面<br />
+								hidden:背面是不可见的,默认值<br />
+								visible:背面是可见的
+							</td>
+						</tr>
+						<tr>
+							<td>box-shadow</td>
+							<td>box-shadow(shadow)</td>
+							<td>eg:box-shadow(1px 1px 3px #CCC, inset 1px 1px 3px #CCC)</td>
+						</tr>
+						<tr>
+							<td>box-sizing</td>
+							<td>box-sizing(box-model)</td>
+							<td>规定两个并排的带边框的框,content-box|border-box|inherit</td>
+						</tr>
+						<tr>
+							<td>placeholder</td>
+							<td>placeholder(color)</td>
+							<td>placehoder text 颜色</td>
+						</tr>
+						<tr>
+							<td colspan="3"><strong>transformations类</strong></td>
+						</tr>
+						<tr>
+							<td>scale</td>
+							<td>scale(ratio...)</td>
+							<td>...为多参数，下同。eg：scale(1,2)</td>
+						</tr>
+						<tr>
+							<td>scale3D</td>
+							<td>scale3D(ratio...)</td>
+							<td>...为多参数，下同。eg：scale3D(1,2,2)</td>
+						</tr>
+						<tr>
+							<td>scaleX|scaleY|scaleZ</td>
+							<td>scaleX(ratio)|scaleY(ratio)|scaleZ(ratio)</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>skew</td>
+							<td>skew(degrees...)</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>skewX|skewY</td>
+							<td>skewX(degrees)|skewY(degrees)</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>translate</td>
+							<td>translate(px...)</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>translate3D</td>
+							<td>translate3D(px...)</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>translateX|translateY|translateZ</td>
+							<td>translateX(px)|translateY(px)|translateZ(px)</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>rotate</td>
+							<td>rotate(degrees...)</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>rotate3D</td>
+							<td>rotate3D(degrees...)</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>rotateX|rotateY|rotateZ</td>
+							<td>rotateX(degrees)|rotateY(degrees)|rotateZ(degrees)</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>keyframes(name)</td>
+							<td>keyframes(yourName) {<br/>
+								&nbsp;form {}<br/>
+								&nbsp;to {}<br/>
+								}
+							</td>
+							<td>配合animation使用</td>
+						</tr>
+						<tr>
+							<td>font-face</td>
+							<td>font-face(font-family, file-path, weight, style)</td>
+							<td>font-family为自定义字体名<br />
+								file-path为字体URL路径<br />
+								weight为字体粗细，默认normal<br />
+								style为字体风格，默认normal
+							</td>
+						</tr>
+						<tr>
+							<td colspan="3"><strong>Gradients 渐变</strong></td>
+						</tr>
+						<tr>
+							<td>gradient-horizontal</td>
+							<td> @include gradient-horizontal(#000, #FFF)</td>
+							<td>左->右 水平渐变</td>
+						</tr>
+						<tr>
+							<td>gradient-horizontal-repeating</td>
+							<td>@include gradient-horizontal-repeating(#333 5%, #ccc 10%);</td>
+							<td>左->右 水平渐变 平铺</td>
+						</tr>
+						<tr>
+							<td>gradient-vertical</td>
+							<td> @include gradient-vertical(#000, #FFF)</td>
+							<td>上->下 垂直渐变</td>
+						</tr>
+						<tr>
+							<td>gradient-vertical-repeating</td>
+							<td> @include gradient-vertical-repeating(#333 5%, #ccc 10%)</td>
+							<td>上->下 垂直渐变 平铺</td>
+						</tr>
+						<tr>
+							<td>gradient-angle</td>
+							<td> @include gradient-angle(#000, #FFF)</td>
+							<td>角度渐变</td>
+						</tr>
+						<tr>
+							<td>gradient-angle-repeating</td>
+							<td> @include gradient-angle-repeating(#333 5%, #ccc 10%)</td>
+							<td>角度渐变 平铺</td>
+						</tr>
+						<tr>
+							<td>gradient-radial</td>
+							<td> @include gradient-radial(#000, #FFF)</td>
+							<td>简单径向渐变</td>
+						</tr>
+					</table>
+				</article>
+			</div>
+			<!-- mixin -->
+			<div class="content">
+				<h3 id="floor-mixin">mixin</h3>
+				<article>
+					<strong>多属性组合</strong>
+					<table width="80%" class="tab" cellpadding="0" cellspacing="0">
+						<tr>
+							<th>mixin</th>
+							<th>参数</th>
+							<th class="explain">说明</th>
+						</tr>
+						<tr>
+							<td>dn</td>
+							<td></td>
+							<td>完全隐藏</td>
+						</tr>
+						<tr>
+							<td>abs-out</td>
+							<td></td>
+							<td>绝对定位位移法隐藏</td>
+						</tr>
+						<tr>
+							<td>abs-clip</td>
+							<td></td>
+							<td>绝对定位切片法隐藏</td>
+						</tr>
+						<tr>
+							<td>dib</td>
+							<td></td>
+							<td>display: inline-block</td>
+						</tr>
+						<tr>
+							<td>auto</td>
+							<td></td>
+							<td>块元素居中</td>
+						</tr>
+						<tr>
+							<td>float()</td>
+							<td>left|right</td>
+							<td>浮动，解决IE67双边距bug</td>
+						</tr>
+						<tr>
+							<td>fix</td>
+							<td></td>
+							<td>清除浮动</td>
+						</tr>
+						<tr>
+							<td>cell</td>
+							<td></td>
+							<td>自适应布局</td>
+						</tr>
+						<tr>
+							<td>cell-bk</td>
+							<td></td>
+							<td>自适应布局cell部分解决连续英文字符换行</td>
+						</tr>
+						<tr>
+							<td>dib-vm</td>
+							<td></td>
+							<td>大小不定元素垂直居中</td>
+						</tr>
+						<tr>
+							<td>bd-none</td>
+							<td></td>
+							<td>无框文本框文本域</td>
+						</tr>
+						<tr>
+							<td>ul-style()</td>
+							<td>默认disc</td>
+							<td>list-style</td>
+						</tr>
+						<tr>
+							<td>ir</td>
+							<td></td>
+							<td>图片替换</td>
+						</tr>
+						<tr>
+							<td>ell</td>
+							<td></td>
+							<td>文字溢出...</td>
+						</tr>
+						<tr>
+							<td>opacity</td>
+							<td>默认0.5</td>
+							<td>透明</td>
+						</tr>
+						<tr>
+							<td>alpha-bg</td>
+							<td>默认rgba(0,0,0,.5)</td>
+							<td>黑色半透明</td>
+						</tr>
+						<tr>
+							<td>disabled</td>
+							<td>默认disabled ($bgcolor: #E6E6E6, $textcolor: #ABABAB)</td>
+							<td>禁用样式,灰底灰字，鼠标手势为禁用</td>
+						</tr>
+						<tr>
+							<td>min-height</td>
+							<td></td>
+							<td>最小高度,IE6采用height</td>
+						</tr>
+						<tr>
+							<td>image2x</td>
+							<td>image2x($url, $width, $height)</td>
+							<td>Retina屏幕的图片处理 eg:imagex("../img/bg.png", 200px, 100px);</td>
+						</tr>
+						<tr>
+							<td>ff</td>
+							<td></td>
+							<td>针对火狐的BUG</td>
+						</tr>
+						<tr>
+							<td>zoom</td>
+							<td></td>
+							<td>ie6-7出发 haslayout</td>
+						</tr>
+						<tr>
+							<td colspan="3"><strong>形状</strong></td>
+						</tr>
+						<tr>
+							<td>rect</td>
+							<td>rect($px...)</td>
+							<td>传一个参数就是正方形,两个就是矩形</td>
+						</tr>
+						<tr>
+							<td>triangle</td>
+							<td>triangle($direction, $width, $color)</td>
+							<td>三角</td>
+						</tr>
+						<tr>
+							<td>circle</td>
+							<td></td>
+							<td>圆形</td>
+						</tr>
+					</table>
+				</article>
+			</div>
+			<!-- media-queries -->
+			<div class="content">
+				<h3 id="floor-media-queries">media-queries</h3>
+				<article>
+					<strong>媒体查询</strong>
+					<pre>@include screen(320px, 640px) {
+	...
+}</pre>
+					<table width="80%" class="tab" cellpadding="0" cellspacing="0">
+						<tr>
+							<th>mixin</th>
+							<th>参数</th>
+							<th class="explain">说明</th>
+						</tr>
+						<tr>
+							<td>screen</td>
+							<td>screen($minWidth, $maxWidth)</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>max-screen</td>
+							<td>max-screen($maxWidth)</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>min-screen</td>
+							<td>min-screen($minWidth)</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>screen-height</td>
+							<td>screen-height($minHeight, $maxHeight)</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>min-screen-height</td>
+							<td>min-screen-height($minHeight)</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>max-screen-height</td>
+							<td>max-screen-height($maxHeight)</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="3"><strong>iOS设备判断</strong></td>
+						</tr>
+						<tr>
+							<td>iphone3</td>
+							<td>iphone3()</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>iphone4</td>
+							<td>iphone4()</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>iphone5</td>
+							<td>iphone5()</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>ipad</td>
+							<td>ipad()</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>ipad-retina</td>
+							<td>ipad-retina()</td>
+							<td></td>
 						</tr>
 					</table>
 				</article>
