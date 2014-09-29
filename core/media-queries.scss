@@ -6,6 +6,8 @@
 
 
 // screen 屏幕
+// min-width 为不小于
+// max-width 为不大于
 @mixin screen($minWidth, $maxWidth) {
 	@media screen and (min-width: $minWidth) and (max-width: $maxWidth) {
 		@content;

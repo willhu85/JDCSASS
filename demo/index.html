@@ -12,13 +12,13 @@
 		<!-- 侧边栏 -->
 		<div class="slide-bar">
 			<h1 class="slide-tit">JDCSASS文档</h1>
-			<ul class="j-slide-nav">
+			<ul class="j-slide-nav slide-nav">
 				<li class="nav-list">
 					<a href="#floor-intro">简介</a>
 				</li>
 				<li class="nav-list">
 					<a href="#floor-core">Core</a>
-					<ul class="sub-nav-list">
+					<ul class="sub-nav-list j-sub-nav-ul">
 						<li><a href="#floor-config">config</a></li>
 						<li><a href="#floor-css3">css3</a></li>
 						<li><a href="#floor-mixin">mixin</a></li>
@@ -31,7 +31,7 @@
 				</li>
 				<li class="nav-list">
 					<a href="javascript:;">Plugin</a>
-					<ul class="sub-nav-list">
+					<ul class="sub-nav-list j-sub-nav-ul">
 						<li><a href="">From</a></li>
 						<li><a href="">Table</a></li>
 						<li><a href="">Alert</a></li>
@@ -727,7 +727,7 @@
 			<div class="content">
 				<h3 id="floor-reset">reset</h3>
 				<article>
-					css reset 没有什么说的，基于normalize.css，然后按照国情修改了点
+					css reset 没有什么说的，基于normalize.css，然后按照国情修改了点				
 				</article>
 			</div>
 			<!-- jdc-pc -->
@@ -735,6 +735,7 @@
 				<h3 id="floor-jdc-pc">jdc-pc</h3>
 				<article>
 					整合了前面的几个SCSS，主要用于PC端
+					<pre>@import "../core/jdc-pc";</pre>
 				</article>
 			</div>
 			<!-- jdc-m -->
@@ -742,6 +743,7 @@
 				<h3 id="floor-jdc-m">jdc-m</h3>
 				<article>
 					整合了前面的几个SCSS，主要用于移动端，设置了下IE兼容了浏览器开关
+					<pre>@import "../core/jdc-m";</pre>
 				</article>
 			</div>
 			<!-- jdc-m-active -->
@@ -749,6 +751,7 @@
 				<h3 id="floor-jdc-m-active">jdc-m-active</h3>
 				<article>
 					整合了前面的几个SCSS，主要用于移动端活动页，预置了一些样式和方法
+					<pre>@import "../core/jdc-m-active";</pre>
 				</article>
 			</div>
 		</div>
@@ -758,8 +761,17 @@
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script>
 	$(function() {
-		var eleSlideLi = $(".j-slide-navli li");
-		eleSlideUl
+		var eleSlideLi = $(".j-slide-nav li");
+		eleSlideLi.click(function() {
+			eleSlideLi.removeClass("current");
+			$(this).addClass("current");
+		});
+
+		var eleSubNavA = $(".j-sub-nav-ul a");
+		eleSubNavA.click(function() {
+			eleSubNavA.removeClass("current");
+			$(this).addClass("current");
+		});
 	})
 </script>
 </body>

@@ -89,11 +89,25 @@ pre {
 		background-color: lighten($baseColor, 13%);
 	}
 }
+.slide-nav {
+	.sub-nav-list {
+		display: none;	
+	}
+	& li.current{
+		.sub-nav-list {
+			display: block;
+		}
+	}
+}
 .sub-nav-list {
 	background-color: lighten($baseColor, 20%);
-	& a:hover {
+	& a:hover{
 		background-color: $lightColor;
 	}
+	& a.current{
+		background-color: $lightColor;
+	}
+	 
 }
 
 .main {

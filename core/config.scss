@@ -10,7 +10,7 @@ $isFilter:          true !default;   //是否为IE6-8使用CSS3滤镜兼容
 
 // 字体配置
 // =============================================================================
-$fontMobile:		 "Helvetica Neue", Helvetica, STHeiTi, Tahoma, sans-serif;
+$fontMobile:		 "Helvetica Neue", Helvetica, DroidSansFallback, STHeiTi, Tahoma, sans-serif;
 $fontSongTi:         "SimSun";           //宋体
 $fontYaHei:          "Microsoft Yahei";  //微软雅黑
 $fontHeiTi:          "SimHei";           //黑体

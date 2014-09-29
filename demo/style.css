@@ -503,9 +503,16 @@ pre {
   .nav-list:hover {
     background-color: #f9aeab; }
 
+.slide-nav .sub-nav-list {
+  display: none; }
+.slide-nav li.current .sub-nav-list {
+  display: block; }
+
 .sub-nav-list {
   background-color: #fbcecc; }
   .sub-nav-list a:hover {
+    background-color: #f8a09c; }
+  .sub-nav-list a.current {
     background-color: #f8a09c; }
 
 .main {
