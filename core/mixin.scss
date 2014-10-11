@@ -117,6 +117,18 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+// 多行文字...
+@mixin ells($height, $row: 2) {
+  height: $height;
+  line-height: $height/$row;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box; 
+  -webkit-line-clamp: $row; 
+  -webkit-box-orient: vertical;
+}
+
 // 透明
 @mixin opacity($opacity:0.5) {
   opacity: $opacity;
