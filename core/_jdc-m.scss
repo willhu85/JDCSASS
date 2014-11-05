@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+@import "../core/config";
+@import "../core/css3";
+@import "../core/mixin";
+@import "../core/media-queries";
+@import "../core/reset";
+
+// 针对移动版的配置
+$isIe67:            false;
+$isFilter:          false;
+
+$prefixForMozilla:      false;
+$prefixForMicrosoft:    false;
+$prefixForOpera:        false;

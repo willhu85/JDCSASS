@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+@import "../core/config";
+@import "../core/css3";
+@import "../core/mixin";
+@import "../core/media-queries";
+
+$baseFontSize: 14px;
+html {
+	font-size: $baseFontSize;
+}
+@include min-screen(640px) {
+	html {
+		font-size: $baseFontSize * 2;
+	}
+}
+@include screen(480px, 640px) {
+	html {
+		font-size: $baseFontSize * 1.5;
+	}
+}
+
+// 活动用了一个简易的的reset
+*{margin:0;padding:0}
+body{
+	line-height: $baseLineHeight;
+	color: $baseFontColor;
+	background-color:$baseBgColor;
+	font-family: $fontMobile;
+}
+i{font-style: normal;}
+fieldset,img{border:0}
+a{
+	text-decoration:none;
+	color: $linkColor;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+ul,li {list-style:none;}
+header,footer,section {display:block;}
+
+// 针对移动版的配置
+$isIe67:            false;
+$isFilter:          false;
+$prefixForMozilla:      false;
+$prefixForMicrosoft:    false;
+$prefixForOpera:        false;
+
+
+// 可以在自己的文件内配置这些参数
+//$baseLineHeight: 1.4;
+//$baseFontSize: 20px;
+//$baseFontColor: #333;
+//$baseBgColor: $white;
+//$linkColor: $navy;
+
+
+//  预定义样式
+.shh5-wrap {
+	width: 100%;
+	img {
+		vertical-align: top;
+	}
+}
+.shh5-wrap-in{
+	position: relative;	
+	@include fix;
+}
+@function pxToPrcent($num, $base: 640px) {
+	@return ($num / $base) * 100%;
+}
+@function pxToRem($px) {
+  @return $px / $baseFontSize * 1rem;
+}

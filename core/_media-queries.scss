@@ -1,0 +1,172 @@
+@charset "UTF-8";
+// =============================================================================
+//   media-queries
+
+// 媒体查询部分
+
+
+// screen 屏幕
+// min-width 为不小于
+// max-width 为不大于
+@mixin screen($minWidth, $maxWidth) {
+	@media screen and (min-width: $minWidth) and (max-width: $maxWidth) {
+		@content;
+	}
+}
+@mixin max-screen($maxWidth) {
+	@media screen and (max-width: $maxWidth) {
+		@content;
+	}
+}
+@mixin min-screen($minWidth) {
+	@media screen and (min-width: $minWidth) {
+		@content;
+	}
+}
+@mixin screen-height($minHeight, $maxHeight) {
+	@media screen and (min-height: $minHeight) and (max-height: $maxHeight) {
+		@content;
+	}
+}
+@mixin min-screen-height($minHeight) {
+	@media screen and (min-height: $minHeight) {
+		@content;
+	}
+}
+@mixin max-screen-height($maxHeight) {
+	@media screen and (max-height: $maxHeight) {
+		@content;
+	}
+}
+
+
+// 屏幕 hdpi
+// Based on bourbon hidpi-media-queries file (https://github.com/thoughtbot/bourbon/blob/master/app/assets/stylesheets/css3/_hidpi-media-query.scss)
+// HIDPI mixin. Default value set to 1.3 to target Google Nexus 7 (http://bjango.com/articles/min-device-pixel-ratio/)
+@mixin hdpi($ratio: 1.3) {
+	@media only screen and (-webkit-min-device-pixel-ratio: $ratio),
+	only screen and (min--moz-device-pixel-ratio: $ratio),
+	only screen and (-o-min-device-pixel-ratio: #{$radio}/1),
+	only screen and (min-resolution: #{round($ratio*96)}dpi),
+	only screen and (min-resolution: #{$ratio}dppx) {
+		@content;
+	}
+}
+
+// iphone
+@mixin iphone3($orientation: all) {
+	$minWidth: 320px;
+	$maxWidth: 480px;
+	$ratio: 1;
+
+	@if $orientation == all {
+		@media only screen and (min-device-width: $minWidth)
+		and (max-device-width: $maxWidth)
+		and (-webkit-device-pixel-ratio: $ratio) {
+			@content;
+		}
+	}
+	@else {
+		@media only screen and (min-device-width: $minWidth)
+		and (max-device-width: $maxWidth)
+		and (-webkit-device-pixel-ratio: $ratio)
+		and (orientation: #{$orientation}) {
+			@content;
+		}
+	}
+}
+@mixin iphone4($orientation: all) {
+	$minWidth: 320px;
+	$maxWidth: 480px;
+	$ratio: 2;
+	$aspectRatio: '2/3';   //设备方向比
+
+	@if $orientation == all {
+		@media only screen and (min-device-width: $minWidth)
+		and (max-device-width: $maxWidth)
+		and (-webkit-device-pixel-ratio: $ratio)
+		and (device-aspect-ratio: $aspectRatio) {
+			@content;
+		}
+	}
+	@else {
+		@media only screen and (min-device-width: $minWidth)
+		and (max-device-width: $maxWidth)
+		and (-webkit-device-pixel-ratio: $ratio)
+		and (device-pixel-ratio: $ratio)
+		and (orientation: #{$orientation}) {
+			@content;
+		}
+	}
+}
+@mixin iphone5($orientation: all) {
+	$minWidth: 320px;
+	$maxWidth: 568px;
+	$ratio: 2;
+	$aspectRatio: '40/71';   //设备方向比
+
+	@if $orientation == all {
+		@media only screen and (min-device-width: $minWidth)
+		and (max-device-width: $maxWidth)
+		and (-webkit-device-pixel-ratio: $ratio)
+		and (device-aspect-ratio: $aspectRatio) {
+			@content;
+		}
+	}
+	@else {
+		@media only screen and (min-device-width: $minWidth)
+		and (max-device-width: $maxWidth)
+		and (-webkit-device-pixel-ratio: $ratio)
+		and (device-pixel-ratio: $ratio)
+		and (orientation: #{$orientation}) {
+			@content;
+		}
+	}
+}
+// ipads (all)
+@mixin ipad($orientation: all)
+{
+	$minWidth: 768px;
+	$maxWidth: 1024px;
+
+	@if $orientation == all
+	{
+		@media only screen and (min-device-width: $minWidth) and (max-device-width: $maxWidth)
+		{
+			@content;
+		}
+	}
+	@else
+	{
+		@media only screen and (min-device-width: $minWidth) and (max-device-width: $maxWidth)
+		and (orientation:#{$orientation})
+		{
+			@content;
+		}
+	}
+}
+
+// ipad-retina
+@mixin ipad-retina($orientation: all)
+{
+	$minWidth: 768px;
+	$maxWidth: 1024px;
+	$ratio: 2;
+
+	@if $orientation == all
+	{
+		@media only screen and (min-device-width: $minWidth) and (max-device-width: $maxWidth)
+		and (-webkit-device-pixel-ratio: $ratio)
+		{
+			@content;
+		}
+	}
+	@else
+	{
+		@media only screen and (min-device-width: $minWidth) and (max-device-width: $maxWidth)
+		and (-webkit-device-pixel-ratio: $ratio) and (orientation:#{$orientation})
+		{
+			@content;
+		}
+	}
+}
