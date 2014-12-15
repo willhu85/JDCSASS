@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    .add{
+    background-image: url(img/pic1.png);
+    }
+    .test-a{
+        background-color: gray;
+    }
+    .test-a a{
+        float: left;
+    }
+    .fix {
+      *zoom: 1; }
+      .fix:after {
+        display: table;
+    content: '';
+    clear: both; }
+    </style>
+</head>
+<body>
+    <div class="fix test-a">
+        <a href="#">按钮</a>
+        <a href="#">按钮</a>
+    </div>
+    <div class="fix test-a">
+        <a href="#">按钮</a>
+        <a href="#">按钮</a>
+    </div>
+</body>
+</html>
