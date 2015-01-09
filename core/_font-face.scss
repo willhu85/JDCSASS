@@ -1,0 +1,15 @@
+// font-face
+// ==================================================================
+// http://www.css3files.com/font/
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal) {
+	@font-face {
+		font-family: $font-family;
+		font-weight: $weight;
+		font-style: $style;
+		src: url('#{$file-path}.eot');								     // eot字体，支持IE9之前版本,如果不需要可以删掉
+		src: url('#{$file-path}.eot?#iefix') format('embedded-opentype'),// 也是支持IE9之前的,需要要支持IE6-9,则需要吧上面的也加上
+		url('#{$file-path}.svg##{$font-family}') format('svg'),     // 用于支持iPad iOS 4.2之前的版本
+		url('#{$file-path}.woff') format('woff'),				 	 // woff字体，支持所有现代浏览器
+		url('#{$file-path}.ttf') format('truetype');			 	 // ttf字体，支持移动端的safari&opera
+	}
+}
