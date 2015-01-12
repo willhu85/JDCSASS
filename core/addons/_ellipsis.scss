@@ -1,0 +1,19 @@
+// 文字溢出...
+// 默认一行
+// chrome下可设置多行
+// height为高度，row为行数
+@mixin ellipsis($height, $row) {
+	@if $height and $row {
+		height: $height;
+		line-height: $height/$row;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: $row;
+		-webkit-box-orient: vertical;
+	} @else {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+}

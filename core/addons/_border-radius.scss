@@ -1,0 +1,19 @@
+// 圆角
+@mixin border-radius($direction, $r) {
+	@if $direction == top {
+		border-top-left-radius: $r;
+		border-top-right-radius: $r;
+	}
+	@if $direction == bottom {
+		border-bottom-left-radius: $r;
+		border-bottom-right-radius: $r;
+	}
+	@if $direction == left {
+		border-top-left-radius: $r;
+		border-bottom-left-radius: $r;
+	}
+	@if $direction == right {
+		border-top-right-radius: $r;
+		border-bottom-right-radius: $r;
+	}
+}

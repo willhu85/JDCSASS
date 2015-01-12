@@ -1,0 +1,5 @@
+// box-shadow
+// 这个妖孽的...是用于填写多参数的东东
+@mixin box-shadow($shadow...) {
+	@include prefixer(box-shadow,$shadow);
+}

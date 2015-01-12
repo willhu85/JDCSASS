@@ -1,0 +1,47 @@
+// 常用形状
+// ==================================================================
+// 矩形
+// 传一个参数就是正方形
+@mixin rect($px...) {
+	@if length($px) > 1 {
+		width: nth($px, 1);
+		height: nth($px, 2);
+	}
+	@else {
+		width: $px;
+		height: $px;
+	}
+}
+// 三角
+@mixin triangle($direction, $width, $color) {
+	content: "";
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	@if $direction == top {
+		border-bottom: $width solid $color;
+		border-left: $width dashed transparent;
+		border-right: $width dashed transparent;
+	}
+	@else if $direction == bottom {
+		border-top: $width solid $color;
+		border-left: $width dashed transparent;
+		border-right: $width dashed transparent;
+	}
+	@else if $direction == left {
+		border-right: $width solid $color;
+		border-top: $width dashed transparent;
+		border-bottom: $width dashed transparent;
+	}
+	@else if $direction == right {
+		border-left: $width solid $color;
+		border-top: $width dashed transparent;
+		border-bottom: $width dashed transparent;
+	}
+}
+// 圆形
+@mixin circle($px) {
+	width: $px;
+	height: $px;
+	border-radius: 50%;
+}

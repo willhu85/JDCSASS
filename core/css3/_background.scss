@@ -1,0 +1,17 @@
+// background-image
+// ==================================================================
+// border-box | padding-box | content-box
+@mixin background-clip($clip) {
+	@include prefixer(background-clip, $clip);
+}
+@mixin background-origin($origin) {
+	@include prefixer(background-origin, $origin);
+}
+@mixin background-size($size...) {
+	// <length> | auto | cover | contain
+	@if length($size...) >= 1 {
+		@include prefixer(background-size, $size);
+	} @else {
+		@include prefixer(background-size, cover);
+	}
+}

@@ -1,10 +1,10 @@
 @charset "UTF-8";
 
 @import "../core/config";
-@import "../core/css3";
-@import "../core/mixin";
-@import "../core/media-queries";
-@import "../core/reset";
+@import "core/_css3";
+@import "core/_mixin";
+@import "core/_media-queries";
+@import "core/_reset";
 
 // 针对移动版的配置
 $isIe67:            false;

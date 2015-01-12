@@ -1,0 +1,5 @@
+// box-sizing
+// content-box | border-box | inherit
+@mixin box-sizing($box-model) {
+	@include prefixer(box-sizing,$box-model);
+}

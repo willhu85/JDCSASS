@@ -1,0 +1,11 @@
+// 清除浮动
+@mixin clearfix {
+	@if $isIe67 {
+		*zoom: 1;
+	}
+	&:after {
+		display: table;
+		content: '';
+		clear: both;
+	}
+}

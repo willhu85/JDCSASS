@@ -1,0 +1,13 @@
+// 针对火狐的BUG
+// @include ff{.fixbug{margin-left: 3px;}}
+@mixin ff {
+	@-moz-document url-prefix() {
+		@content;
+	};
+}
+// ie6-7触发 haslayout
+@mixin zoom {
+	@if $isIe67 {
+		*zoom: 1;
+	}
+}

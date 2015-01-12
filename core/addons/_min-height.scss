@@ -1,0 +1,8 @@
+// 最小高度,IE6采用height
+@mixin min-height($height) {
+	min-height: $height;
+	height: auto !important;
+	@if $isIe67 {
+		_height: $height;
+	}
+}

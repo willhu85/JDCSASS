@@ -1,0 +1,13 @@
+// placehoder text 样式
+@mixin placeholder($color) {
+	&::-moz-placeholder {
+		color: $color;
+		opacity: 1;   // see https://github.com/twbs/bootstrap/pull/11526
+	}
+	&:-ms-input-placeholder {
+		color: $color;  // IE10+
+	}
+	&::-webkit-input-placeholder {
+		color: $color;
+	}
+}

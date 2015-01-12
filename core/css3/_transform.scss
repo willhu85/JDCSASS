@@ -1,0 +1,67 @@
+// transformations
+// ==================================================================
+// scale 缩放
+@mixin scale($ratio...) {
+	@include prefixer(transform, scale($ratio));
+}
+@mixin scale3D($ratio...) {
+	@include prefixer(transform, scale3D($ratio));
+}
+@mixin scaleX($ratio) {
+	@include prefixer(transform, scaleX($ratio));
+}
+@mixin scaleY($ratio) {
+	@include prefixer(transform, scaleY($ratio));
+}
+@mixin scaleZ($ratio) {
+	@include prefixer(transform, scaleZ($ratio));
+}
+// skew 斜切
+// 关于为什么 用 skewX,skewY。是因为IE不支持skew(x,y)写法
+// see https://github.com/twbs/bootstrap/issues/4885; IE9+
+@mixin skew($degrees...) {
+	@include prefixer(transform, skew($degrees));
+	//skew会有一些锯齿,解决办法是backface-visibility:hidden;
+	// see https://github.com/twitter/bootstrap/issues/5319
+	@include backface-visibility;
+}
+@mixin skewX($degrees) {
+	@include prefixer(transform, skewX($degrees));
+	@include backface-visibility;
+}
+@mixin skewY($degrees) {
+	@include prefixer(transform, skewY($degrees));
+	@include backface-visibility;
+}
+// translate 位移
+@mixin translate($px...) {
+	@include prefixer(transform, translate($px));
+}
+@mixin translate3D($px...) {
+	@include prefixer(transform, translate3D($px));
+}
+@mixin translateX($px) {
+	@include prefixer(transform, translateX($px));
+}
+@mixin translateY($px) {
+	@include prefixer(transform, translateY($px));
+}
+@mixin translateZ($px) {
+	@include prefixer(transform, translateZ($px));
+}
+// rotate 旋转
+@mixin rotate($degrees...) {
+	@include prefixer(transform, rotate($degrees));
+}
+@mixin rotate3D($degrees...) {
+	@include prefixer(transform, rotate3D($degrees));
+}
+@mixin rotateX($degrees) {
+	@include prefixer(transform, rotateX($degrees));
+}
+@mixin rotateY($degrees) {
+	@include prefixer(transform, rotateY($degrees));
+}
+@mixin rotateZ($degrees) {
+	@include prefixer(transform, rotateZ($degrees) );
+}

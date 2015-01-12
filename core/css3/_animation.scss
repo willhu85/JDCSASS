@@ -1,0 +1,34 @@
+// Animation
+// ==================================================================
+// eg: animation(test 5s infinite)
+@mixin animation($animation) {
+	@include prefixer(animation,$animation);
+}
+// 要绑定到选择器的 keyframe 名称
+@mixin animation-name($name) {
+	@include prefixer(animation-name,$name);
+}
+// 完成动画所花费的时间
+@mixin animation-duration($duration) {
+	@include prefixer(animation-duration,$duration);
+}
+// 动画的速度曲线
+@mixin animation-timing-function($timing-function) {
+	@include prefixer(animation-timing-function,$timing-function);
+}
+// 动画开始前的延迟
+@mixin animation-delay($delay) {
+	@include prefixer(animation-delay,$delay);
+}
+// 动画播放的次数
+@mixin animation-iteration-count($iteration-count) {
+	@include prefixer(animation-iteration-count,$iteration-count);
+}
+// 是否反向播放动画
+@mixin animation-direction($direction) {
+	@include prefixer(animation-direction,$direction);
+}
+// 结束时动画停留的位置
+@mixin animation-fill-mode($fill-mode) {
+	@include prefixer(animation-fill-mode,$fill-mode);
+}

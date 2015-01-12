@@ -1,0 +1,66 @@
+// Gradients 渐变
+// ==================================================================
+// 左->右 水平渐变
+// eg: @include gradient-horizontal(#000, #FFF)
+//     @include gradient-horizontal(#000 80%, #FFF 90%, #000);
+@mixin gradient-horizontal($gradient...) {
+	background-image: -webkit-linear-gradient(left, $gradient); // Safari 5.1+, Chrome 10+
+	@if $prefixForOpera == true {
+		background-image: -o-linear-gradient(left, $gradient); // Opera 11.10
+	}
+	background-image: linear-gradient(to right, $gradient); // Standard, IE10
+}
+// 左->右 水平渐变 平铺
+// eg: @include gradient-horizontal-repeating(#333 5%, #ccc 10%);
+@mixin gradient-horizontal-repeating($gradient...){
+	background-image: -webkit-repeating-linear-gradient(left, $gradient); // Safari 5.1+, Chrome 10+
+	@if $prefixForOpera == true {
+		background-image: -o-repeating-linear-gradient(left, $gradient); // Opera 11.10
+	}
+	background-image: repeating-linear-gradient(to right, $gradient); // Standard, IE10
+}
+// 上->下 垂直渐变
+@mixin gradient-vertical($gradient...) {
+	background-image: -webkit-linear-gradient(top, $gradient); // Safari 5.1+, Chrome 10+
+	@if $prefixForOpera == true {
+		background-image: -o-linear-gradient(top, $gradient); // Opera 11.10
+	}
+	background-image: linear-gradient(to bottom, $gradient); // Standard, IE10
+}
+// 上->下 垂直渐变 平铺
+@mixin gradient-vertical-repeating($gradient...){
+	background-image: -webkit-repeating-linear-gradient(top, $gradient); // Safari 5.1+, Chrome 10+
+	@if $prefixForOpera == true {
+		background-image: -o-repeating-linear-gradient(top, $gradient); // Opera 11.10
+	}
+	background-image: repeating-linear-gradient(to bottom, $gradient); // Standard, IE10
+}
+// 角度渐变
+// @include gradient-angle(45deg, #333 30%, #ccc);
+@mixin gradient-angle($gradient...) {
+	background-image: -webkit-linear-gradient($gradient); // Safari 5.1+, Chrome 10+
+	@if $prefixForOpera == true {
+		background-image: -o-linear-gradient($gradient); // Opera 11.10
+	}
+	background-image: linear-gradient($gradient); // Standard, IE1
+}
+// 角度渐变 平铺
+// @include gradient-angle-repeating(45deg, #333 30%, #ccc);
+@mixin gradient-angle-repeating($gradient...) {
+	background-image: -webkit-repeating-linear-gradient($gradient); // Safari 5.1+, Chrome 10+
+	@if $prefixForOpera == true {
+		background-image: -o-repeating-linear-gradient($gradient); // Opera 11.10
+	}
+	background-image: repeating-linear-gradient($gradient); // Standard, IE1
+}
+// 简单径向渐变
+// @include gradient-radial(#00F,#FFF);
+// 复杂的径向渐变后续添加
+@mixin gradient-radial($gradient...){
+	background-image: -webkit-radial-gradient($gradient); // Safari 5.1+, Chrome 10+
+	@if $prefixForOpera == true {
+		background-image: -o-radial-gradient($gradient); // Opera 11.10
+	}
+	background-image: radial-gradient($gradient); // Standard, IE1
+	background-repeat: no-repeat;
+}

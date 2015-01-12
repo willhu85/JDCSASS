@@ -1,0 +1,77 @@
+// display: hidden
+// 完全隐藏
+@mixin none {
+	display: none !important;
+	visibility: hidden;
+}
+// 绝对定位隐藏
+// 位移法和切片法
+@mixin abs-out {
+	position: absolute;
+	left: -999em;
+	top: -999em;
+}
+@mixin abs-clip {
+	position: absolute;
+	@if $isIe67 {
+		clip: rect(1px 1px 1px 1px);
+	}
+	clip: rect(1px, 1px, 1px ,1px);
+}
+// display: inline-block;
+@mixin inline-block {
+	display: inline-block;
+	@if $isIe67 {
+		*display: inline;
+		*zoom: 1;
+	}
+}
+// 居中
+@mixin margin-auto {
+	margin-right: auto;
+	margin-left: auto;
+}
+// float left||right
+@mixin float($float: left) {
+	float: $float;
+	// ie6-7双边距bug
+	@if $isIe67 {
+		display: inline;
+	}
+}
+
+// 自适应布局
+@mixin table-cell {
+	display: table-cell;
+	@if $isIe67 {
+		*display: inline-block;
+	}
+	width: 2000px;
+	@if $isIe67 {
+		*width: auto;
+	}
+}
+// 自适应布局cell部分解决连续英文字符换行
+@mixin table-cell-bk {
+	display: table;
+	width: 100%;
+	table-layout: fixed;
+	word-wrap: break-word;
+}
+// 大小不定元素垂直居中
+@mixin inline-block-middle {
+	display: inline-block;
+	width: 0;
+	height: 100%;
+	vertical-align: middle;
+}
+// 无框文本框文本域
+@mixin border-none {
+	border: 0;
+	outline: none;
+}
+// list-style
+@mixin ul-style($style: disc) {
+	margin-left: 25px;
+	list-style: disc;
+}

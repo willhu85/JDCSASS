@@ -1,0 +1,25 @@
+// 动画
+// ==================================================================
+@mixin keyframes($name) {
+	@-webkit-keyframes #{$name} {
+		@content;
+	}
+	@if $prefixForMicrosoft == true {
+		@-ms-keyframes #{$name} {
+			@content;
+		}
+	}
+	@if $prefixForMozilla == true {
+		@-moz-keyframes #{$name} {
+			@content;
+		}
+	}
+	@if $prefixForOpera == true {
+		@-o-keyframes #{$name} {
+			@content;
+		}
+	}
+	@keyframes #{$name} {
+		@content;
+	}
+}

@@ -1,0 +1,34 @@
+// transition
+//-----------------------------------------------------
+@mixin transition($property...) {
+	@if length($property) >= 1 {
+		@include prefixer(transition, $property);
+	}
+	@else {
+		$property: all 0.3s ease;
+		@include prefixer(transition, $property);
+	}
+}
+
+@mixin transition-property($property...) {
+	// -webkit-transition-property: transitionPropertyNames($property);
+	// @if $prefixForOpera {
+	//   -o-transition-property: transitionPropertyNames($property);
+	// }
+	// transition-property: transitionPropertyNames($property);
+	@include prefixer(transition-property, $property);
+}
+
+@mixin transition-duration($times...) {
+	@include prefixer(transition-duration, $times);
+}
+
+@mixin transition-timing-function($motions...) {
+	// timing-function
+	// https://developer.mozilla.org/en-US/docs/Web/CSS/timing-function
+	@include prefixer(transition-timing-function, $motions);
+}
+
+@mixin transition-delay($times...) {
+	@include prefixer(transition-delay, $times);
+}

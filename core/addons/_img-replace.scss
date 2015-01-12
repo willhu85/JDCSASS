@@ -1,0 +1,17 @@
+//	图片替换
+//	高级浏览器用2
+//	ie7-8不支持transparent,用1
+//  ie6用1会有一条细线，所以用3
+//  要兼容ie6，需要确定高度
+//
+@mixin img-replace($height: 99) {
+	font: 0/0 a;            //1
+	text-shadow: none;
+	border: 0 none;
+	color: transparent;     //2
+	@if $isIe67 {
+		_overflow: hidden;    //3
+		_font-size: 10px;     //3
+		_line-height: $height;//3
+	}
+}

@@ -1,0 +1,6 @@
+// 禁用样式,灰底灰字，鼠标手势为禁用
+@mixin disabled ($bgcolor: #E6E6E6, $textcolor: #ABABAB) {
+	background-color: $bgcolor !important;
+	color: $textcolor !important;
+	cursor: not-allowed !important;
+}
