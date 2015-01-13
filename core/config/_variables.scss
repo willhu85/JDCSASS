@@ -1,68 +1,18 @@
-// 配置项
-// =============================================================================
-
-// 浏览器 配置 true开启， false关闭
-$isIe67:            false !default;    //是否兼容IE6-7
-$isFilter:          false !default;   //是否为IE6-8使用CSS3滤镜兼容
-
-// 是否针对移动端
-// $isMobile = true 时 css3默认只输出 -webkit和标准属性
-/*	其他属性为
-	$prefixForMozilla:      true;
-	$prefixForMicrosoft:    true;
-	$prefixForOpera:        true;
-*/
-$isMobile: true;
-
 // 网页基本配置
 $baseFontSize:       14px !default;      	//基础字号
 $baseLineHeight:     1.4 !default;       	//基础行高
-$baseFontFamily:     $fontSongTi !default;	//基础字体
-$baseBgColor:		 $white !default;		//基础背景色
-$baseFontColor:		 $black * 3 !default;	//基础字色
+$baseFontFamily:     "SimSun" !default;		//基础字体
+$baseBgColor:		 #FFF !default;			//基础背景色
+$baseFontColor:		 #333 !default;			//基础字色
 
 // 链接色
-$linkColor:       $blue !default;
-$linkColorHover:  $navy !default;
+//$linkColor:       $blue !default;
+//$linkColorHover:  $navy !default;
 
 // 交互颜色
 // 四种状态: 警告,错误,成功,提示
 // 每个状态有三个值: 文本色,背景色,边框色
-$warningColor:        $red !default;
-$errorColor:          $red !default;
-$successColor:        $green !default;
-$remindColor:         $yellow !default;
-
-
-// 对于reset的一些补充，更符合国情
-// =============================================================================
-html {
-	overflow-y: scroll;
-	-webkit-overflow-scrolling: touch;
-}
-body,
-button,
-input,
-select,
-textarea{
-	font-family: $baseFontFamily;
-}
-img {
-	vertical-align: middle;
-}
-textarea {
-	resize: vertical;
-}
-h1,h2,h3,h4,h5,h6,p,figure,form {
-	margin:0;
-}
-ul,ol,li,dl,dd{
-	margin: 0;
-	padding:0;
-}
-ul,ol{
-	list-style: none outside none;
-}
-a {
-	text-decoration: none;
-}
+//$warningColor:        $red !default;
+//$errorColor:          $red !default;
+//$successColor:        $green !default;
+//$remindColor:         $yellow !default;

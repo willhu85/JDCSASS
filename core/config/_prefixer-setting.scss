@@ -1,0 +1,8 @@
+// 是否针对移动端
+// $isMobile = true 时 css3默认只输出 -webkit和标准属性
+/*	其他属性为
+	$prefixForMozilla:      true;
+	$prefixForMicrosoft:    true;
+	$prefixForOpera:        true;
+*/
+$isMobile: true;

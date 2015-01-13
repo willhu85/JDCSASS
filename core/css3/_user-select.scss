@@ -1,0 +1,4 @@
+// user-select
+@mixin user-select($arg: none) {
+	@include prefixer(user-select, $arg);
+}
